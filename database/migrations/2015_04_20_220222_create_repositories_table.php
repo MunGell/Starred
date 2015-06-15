@@ -30,5 +30,4 @@ class CreateRepositoriesTable extends Migration
     {
         Schema::drop('repositories');
     }
-
 }
