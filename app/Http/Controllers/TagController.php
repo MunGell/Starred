@@ -20,9 +20,7 @@ class TagController extends Controller
     public function show($id)
     {
         $tag = Tag::find($id);
-        $repos = $tag->repositories()->getResults();
-
-        return view('repositories.list', ['repos' => $repos, 'title' => 'Tag ' . $tag->title]);
+        return $tag->repositories()->getResults();
     }
 
 }

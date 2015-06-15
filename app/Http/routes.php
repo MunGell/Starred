@@ -15,16 +15,20 @@ Route::controllers([
     'auth' => 'Auth\AuthController',
 ]);
 
-Route::get('/', 'HomeController@index');
+Route::get('/', function() {
+    return redirect()->action('RepositoryController@index');
+});
 
-Route::get('home', 'HomeController@index');
+Route::group(['prefix' => 'repositories'], function () {
+    Route::get('/', 'RepositoryController@index');
+    Route::get('{id}', 'RepositoryController@show')->where('id', '[0-9]+');
+    Route::post('{id}/tags/add', 'RepositoryController@addTag')->where('id', '[0-9]+');
+    Route::post('{id}/tags/remove', 'RepositoryController@removeTag')->where('id', '[0-9]+');
+});
+
+Route::group(['prefix' => 'tags'], function () {
+    Route::get('/', 'TagController@index');
+    Route::get('{id}', 'TagController@show')->where('id', '[0-9]+');
+});
 
 Route::get('sync', 'SyncController@index');
-
-Route::get('repositories', 'RepositoryController@index');
-Route::post('repositories/{id}/tags/add', 'RepositoryController@addTag')->where('id', '[0-9]+');
-Route::post('repositories/{id}/tags/remove', 'RepositoryController@removeTag')->where('id', '[0-9]+');
-Route::get('repositories/{id}', 'RepositoryController@show')->where('id', '[0-9]+');
-
-Route::get('tags', 'TagController@index');
-Route::get('tags/{id}', 'TagController@show')->where('id', '[0-9]+');

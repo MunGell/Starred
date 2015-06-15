@@ -14,17 +14,15 @@ class RepositoryController extends Controller
 
     public function index()
     {
-        $repos = \Auth::user()->repositories()->orderBy('repository_user.starred_at', 'desc')->paginate();
-
-        return view('repositories.list', ['repos' => $repos, 'title' => 'Repositories']);
+        return Auth::user()->repositories()->orderBy('repository_user.starred_at', 'desc')->paginate();
     }
 
     public function show($id)
     {
         $repo = Repository::find($id);
-        $tags = $repo->tags(Auth::user()->id);
+        $repo->tags = $repo->tags(Auth::user()->id);
 
-        return view('repositories.show', ['repo' => $repo, 'tags' => $tags]);
+        return $repo;
     }
 
     public function addTag($id)
