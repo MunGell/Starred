@@ -3,25 +3,15 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\Token;
+
 use Validator;
 use App\Http\Controllers\Controller;
-use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use Laravel\Socialite\Facades\Socialite;
+use \Auth;
 
 class AuthController extends Controller
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Registration & Login Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller handles the registration of new users, as well as the
-    | authentication of existing users. By default, this controller uses
-    | a simple trait to add these behaviors. Why don't you explore it?
-    |
-    */
-
-    use AuthenticatesAndRegistersUsers;
-
     /**
      * Create a new authentication controller instance.
      *
@@ -41,9 +31,9 @@ class AuthController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|max:255',
-            'email' => 'required|email|max:255|unique:users',
-            'password' => 'required|confirmed|min:6',
+            'id' => 'required|numeric|unique:users',
+            'login' => 'required|max:255|unique:users',
+            'avatar' => 'required|url',
         ]);
     }
 
@@ -55,10 +45,36 @@ class AuthController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
+        $user = User::updateOrCreate(['id' => $data['id']], [
+            'login' => $data['nickname'],
+            'avatar' => $data['avatar'],
         ]);
+
+        Token::updateOrCreate([
+            'id' => $data['id']
+        ], [
+            'token' => $data['token'],
+            'auth' => bcrypt($data['token']),
+        ]);
+
+        return $user;
+    }
+
+    public function getLogin()
+    {
+        // @todo: temp: offline mode
+        Auth::loginUsingId(812976);
+        return redirect('/');
+
+        return Socialite::with('github')->redirect();
+    }
+
+    public function getCallback()
+    {
+        $github_user = Socialite::with('github')->user();
+        $user = $this->registrar->create((array) $github_user);
+        $this->auth->loginUsingId($user->id);
+
+        return redirect('/');
     }
 }
