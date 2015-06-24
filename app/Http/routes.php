@@ -15,9 +15,7 @@ Route::controllers([
     'auth' => 'Auth\AuthController',
 ]);
 
-Route::get('/', function() {
-    return redirect()->action('RepositoryController@index');
-});
+Route::get('/', 'AppController@index');
 
 Route::group(['prefix' => 'repositories'], function () {
     Route::get('/', 'RepositoryController@index');
