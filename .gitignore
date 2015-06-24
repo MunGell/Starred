@@ -2,5 +2,7 @@
 /node_modules
 .env
 
+/resources/vendor
+
 .phpstorm.meta.php
 _ide_helper.php
