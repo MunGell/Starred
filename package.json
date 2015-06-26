@@ -6,6 +6,7 @@
   },
   "dependencies": {
     "jquery": "^2.1.4",
+    "lodash": "^3.9.3",
     "react": "^0.13.3",
     "route-pattern": "0.0.6"
   }
