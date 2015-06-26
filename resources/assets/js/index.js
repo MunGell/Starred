@@ -50,13 +50,6 @@ var App = React.createClass({
             }
         }
 
-        if (component === null) {
-            component = {
-                component: Routes['*'],
-                data: null
-            };
-        }
-
         return component;
     },
 
