@@ -30,7 +30,7 @@ class RepositoryController extends Controller
         $title = Input::get('title');
         $tag = Tag::findOrCreate($title);
 
-        if (!in_array($id, $tag->repositories()->getRelatedIds())) {
+        if (!$tag->repositories()->getRelatedIds()->contains($id)) {
             $tag->repositories()->attach($id);
             $tag = [$tag];
         } else {
