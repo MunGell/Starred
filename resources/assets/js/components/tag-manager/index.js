@@ -6,7 +6,7 @@ import TagList from './tag-list'
 
 export default React.createClass({
 
-    getDefaultProps: function() {
+    getDefaultProps: function () {
         return {
             tags: []
         }
@@ -16,7 +16,7 @@ export default React.createClass({
         return (
             <div className="component-tag-manager">
                 <Form />
-                <TagList tags={this.props.tags}/>
+                <TagList tags={this.props.tags} onTagAdd={this.props.onTagAdd} />
             </div>
         )
     }
