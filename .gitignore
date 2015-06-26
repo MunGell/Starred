@@ -3,6 +3,9 @@
 .env
 
 /resources/vendor
+/public/js/*.js
+/public/css/*.css
+/public/css/*.map
 
 .phpstorm.meta.php
 _ide_helper.php
