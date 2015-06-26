@@ -35,6 +35,16 @@ export default React.createClass({
                 });
             }.bind(this));
         }.bind(this));
+
+        $(document).on('component.tag-manager.list.remove', function (event, data) {
+            this.props.onTagRemove(data, function () {
+                this.setState({
+                    tags: _.filter(this.state.tags, function(tag) {
+                        return tag.id !== data.id;
+                    })
+                });
+            }.bind(this));
+        }.bind(this));
     },
 
     render: function () {

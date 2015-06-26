@@ -24,7 +24,7 @@ export default React.createClass({
         }
     },
 
-    _onTagAdd: function(data, callback) {
+    _onTagAdd: function (data, callback) {
         $.ajaxSetup({
             headers: {
                 'X-XSRF-TOKEN': Cookies.getCookie('XSRF-TOKEN')
@@ -34,12 +34,24 @@ export default React.createClass({
         $.post('/repositories/' + this.state.id + '/tags/add', data, callback);
     },
 
+    _onTagRemove: function (id, callback) {
+        $.ajaxSetup({
+            headers: {
+                'X-XSRF-TOKEN': Cookies.getCookie('XSRF-TOKEN')
+            }
+        });
+
+        $.post('/repositories/' + this.state.id + '/tags/remove', {
+            'tag': id
+        }).done(callback);
+    },
+
     render: function () {
         return (
             <div className="page-repository">
                 <h1>{this.state.name}</h1>
                 <h3>{this.state.description}</h3>
-                <TagManager tags={this.state.tags} onTagAdd={this._onTagAdd}/>
+                <TagManager tags={this.state.tags} onTagAdd={this._onTagAdd} onTagRemove={this._onTagRemove} />
             </div>
         )
     }

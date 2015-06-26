@@ -16,7 +16,7 @@ export default React.createClass({
         return (
             <div className="component-tag-manager">
                 <Form />
-                <TagList tags={this.props.tags} onTagAdd={this.props.onTagAdd} />
+                <TagList tags={this.props.tags} onTagAdd={this.props.onTagAdd} onTagRemove={this.props.onTagRemove} />
             </div>
         )
     }
