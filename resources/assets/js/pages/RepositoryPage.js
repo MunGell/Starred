@@ -49,9 +49,15 @@ export default React.createClass({
     render: function () {
         return (
             <div className="page-repository">
-                <h1>{this.state.name}</h1>
-                <h3>{this.state.description}</h3>
-                <TagManager tags={this.state.tags} onTagAdd={this._onTagAdd} onTagRemove={this._onTagRemove} />
+                <div className="col-sm-5 col-sm-offset-2">
+                    <h1>{this.state.name}</h1>
+                    <h3>{this.state.description}</h3>
+                </div>
+                <div className="col-sm-3">
+                    <div className="well">
+                        <TagManager tags={this.state.tags} onTagAdd={this._onTagAdd} onTagRemove={this._onTagRemove} />
+                    </div>
+                </div>
             </div>
         )
     }
