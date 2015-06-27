@@ -2,7 +2,6 @@ import $ from 'jquery'
 import React from 'react'
 
 import Cookies from '../utils/cookies'
-
 import TagManager from '../components/tag-manager'
 
 export default React.createClass({

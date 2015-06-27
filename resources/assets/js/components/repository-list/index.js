@@ -2,6 +2,13 @@ import $ from 'jquery'
 import React from 'react'
 
 export default React.createClass({
+
+    getDefaultProps: function () {
+        return {
+            data: []
+        }
+    },
+
     render: function () {
         return (
             <div className="component-repository-list">
