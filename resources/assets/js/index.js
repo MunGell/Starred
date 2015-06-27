@@ -4,11 +4,13 @@ import RoutePattern from 'route-pattern'
 
 import RepositoriesPage from './pages/RepositoriesPage'
 import RepositoryPage from './pages/RepositoryPage'
+import TagPage from './pages/TagPage'
 
 var Routes = {
     '*': RepositoriesPage,
     'repositories': RepositoriesPage,
-    'repositories/:id': RepositoryPage
+    'repositories/:id': RepositoryPage,
+    'tags/:id': TagPage
 };
 
 var App = React.createClass({
