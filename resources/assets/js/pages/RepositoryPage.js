@@ -51,7 +51,7 @@ export default React.createClass({
             <div className="page-repository">
                 <div className="col-sm-5 col-sm-offset-2">
                     <h1>{this.state.name}</h1>
-                    <h3>{this.state.description}</h3>
+                    <p>{this.state.description}</p>
                 </div>
                 <div className="col-sm-3">
                     <div className="well">
