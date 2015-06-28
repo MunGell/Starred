@@ -1,5 +1,5 @@
-import $ from 'jquery'
 import React from 'react'
+import Api from '../utils/api'
 
 import RepositoryList from '../components/repository-list'
 
@@ -12,8 +12,7 @@ export default React.createClass({
     },
 
     componentDidMount: function () {
-        $.get('/tags/' + this.props.data.id)
-            .done(this._setData);
+        Api.get('/tags/' + this.props.data.id, this._setData);
     },
 
     _setData: function (data) {

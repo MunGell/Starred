@@ -1,7 +1,6 @@
-import $ from 'jquery'
 import React from 'react'
+import Api from '../utils/api'
 
-import Cookies from '../utils/cookies'
 import TagManager from '../components/tag-manager'
 
 export default React.createClass({
@@ -13,8 +12,7 @@ export default React.createClass({
     },
 
     componentDidMount: function () {
-        $.get('/repositories/' + this.props.data.id)
-            .done(this._setData);
+        Api.getRepository(this.props.data.id, this._setData);
     },
 
     _setData: function (data) {
@@ -24,25 +22,11 @@ export default React.createClass({
     },
 
     _onTagAdd: function (data, callback) {
-        $.ajaxSetup({
-            headers: {
-                'X-XSRF-TOKEN': Cookies.getCookie('XSRF-TOKEN')
-            }
-        });
-
-        $.post('/repositories/' + this.state.id + '/tags/add', data, callback);
+        Api.addTag(this.state.id, data, callback);
     },
 
     _onTagRemove: function (id, callback) {
-        $.ajaxSetup({
-            headers: {
-                'X-XSRF-TOKEN': Cookies.getCookie('XSRF-TOKEN')
-            }
-        });
-
-        $.post('/repositories/' + this.state.id + '/tags/remove', {
-            'tag': id
-        }).done(callback);
+        Api.removeTag(this.state.id, { 'tag': id }, callback);
     },
 
     render: function () {
