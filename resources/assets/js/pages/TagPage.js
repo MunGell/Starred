@@ -25,7 +25,7 @@ export default React.createClass({
     render: function () {
         return (
             <div className="page-tag">
-                <RepositoryList data={this.state.data} root='/tags/' />
+                <RepositoryList data={this.state.data} root='/repositories/' />
             </div>
         )
     }
