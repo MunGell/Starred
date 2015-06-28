@@ -46,9 +46,11 @@ class SyncController extends Controller
 
         \Auth::user()->repositories()->sync($repo_ids);
 
-        $limit = new RateLimit($token);
+        return redirect()->action('RepositoryController@index');
 
-        return $limit->getData()->getRemaining();
+        // @todo: implement rate limit check before syncing
+        //$limit = new RateLimit($token);
+        //$limit->getData()->getRemaining();
     }
 
 }
