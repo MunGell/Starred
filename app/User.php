@@ -41,17 +41,40 @@ class User extends Model implements AuthenticatableContract
 
     public function tags()
     {
-        return DB::table('repository_user')
-            ->where('repository_user.user_id', '=', $this->id)
-            ->join('repository_tag', 'repository_tag.repository_id', '=', 'repository_user.repository_id')
-            ->join('tags', 'repository_tag.tag_id', '=', 'tags.id')
-            ->select('tags.id', 'tags.title')
-            ->distinct()
+        return $this->buildTagQuery()
             ->paginate();
     }
 
     public function repositories()
     {
         return $this->belongsToMany('App\Repository');
+    }
+
+    public function searchTags($keyword)
+    {
+        return $this->buildTagQuery()
+            ->where('title', 'like', '%' . $keyword . '%')
+            ->get();
+    }
+
+    public function searchRepositories($keyword)
+    {
+        return $this->repositories()
+            ->where(function($query) use ($keyword) {
+                $query->where('full_name', 'like', '%' . $keyword . '%')
+                    ->orWhere('description', 'like', '%' . $keyword . '%');
+
+            })
+            ->get();
+    }
+
+    private function buildTagQuery()
+    {
+        return DB::table('repository_user')
+            ->where('repository_user.user_id', '=', $this->id)
+            ->join('repository_tag', 'repository_tag.repository_id', '=', 'repository_user.repository_id')
+            ->join('tags', 'repository_tag.tag_id', '=', 'tags.id')
+            ->select('tags.id', 'tags.title')
+            ->distinct();
     }
 }

@@ -29,4 +29,5 @@ Route::group(['prefix' => 'tags'], function () {
     Route::get('{id}', 'TagController@show')->where('id', '[0-9]+');
 });
 
+Route::get('search/{keyword}', 'SearchController@index');
 Route::get('sync', 'SyncController@index');
