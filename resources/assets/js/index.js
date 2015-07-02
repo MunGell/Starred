@@ -4,10 +4,12 @@ import RoutePattern from 'route-pattern'
 
 import RepositoriesPage from './pages/RepositoriesPage'
 import RepositoryPage from './pages/RepositoryPage'
+import SearchPage from './pages/SearchPage'
 import TagPage from './pages/TagPage'
 
 var Routes = {
     '*': RepositoriesPage,
+    'search': SearchPage,
     'repositories': RepositoriesPage,
     'repositories/:id': RepositoryPage,
     'tags/:id': TagPage
