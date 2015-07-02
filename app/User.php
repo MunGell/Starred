@@ -50,21 +50,23 @@ class User extends Model implements AuthenticatableContract
         return $this->belongsToMany('App\Repository');
     }
 
-    public function searchTags($keyword)
+    public function searchTags($keyword, $currentPage)
     {
         return $this->buildTagQuery()
             ->where('title', 'like', '%' . $keyword . '%')
+            ->forPage($currentPage, $this->perPage)
             ->get();
     }
 
-    public function searchRepositories($keyword)
+    public function searchRepositories($keyword, $currentPage)
     {
         return $this->repositories()
-            ->where(function($query) use ($keyword) {
+            ->where(function ($query) use ($keyword) {
                 $query->where('full_name', 'like', '%' . $keyword . '%')
                     ->orWhere('description', 'like', '%' . $keyword . '%');
 
             })
+            ->forPage($currentPage, $this->perPage)
             ->get();
     }
 

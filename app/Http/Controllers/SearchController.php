@@ -3,6 +3,7 @@
 use App\Repository;
 use App\Tag;
 use Auth;
+use Illuminate\Pagination\Paginator;
 
 class SearchController extends Controller
 {
@@ -12,11 +13,22 @@ class SearchController extends Controller
         $this->middleware('auth');
     }
 
-    public function index($keyword)
+    public function index($keyword = '')
     {
+        $user = Auth::user();
+        $tags = new Paginator($user->searchTags($keyword, Paginator::resolveCurrentPage()), $user->getPerPage());
+        $repositories = new Paginator($user->searchRepositories($keyword, Paginator::resolveCurrentPage()), $user->getPerPage());
+
+        if (strlen($keyword) > 3) {
+            return [
+                'tags' => $tags->toArray(),
+                'repositories' => $repositories->toArray()
+            ];
+        }
+
         return [
-            'tags' => Auth::user()->searchTags($keyword),
-            'repositories' => Auth::user()->searchRepositories($keyword)
+            'tags' => [],
+            'repositories' => []
         ];
     }
 
