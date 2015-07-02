@@ -33,6 +33,10 @@ Api.prototype.removeTag = function (id, data, callback) {
     this.post('/repositories/' + id + '/tags/remove', data, callback);
 };
 
+Api.prototype.search = function(keyword, callback) {
+    this.get('/search/' + encodeURIComponent(keyword), callback)
+};
+
 Api.prototype._onError = function(response) {
     if (response.status === 401) {
         // @todo: add return url in here
