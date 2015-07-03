@@ -11,6 +11,7 @@ var Routes = {
     '*': RepositoriesPage,
     'search': SearchPage,
     'repositories': RepositoriesPage,
+    'repositories/?page=:page': RepositoriesPage,
     'repositories/:id': RepositoryPage,
     'tags/:id': TagPage
 };

@@ -2,6 +2,7 @@ import React from 'react'
 import Api from '../utils/api'
 
 import RepositoryList from '../components/repository-list'
+import Paginator from '../components/paginator'
 
 export default React.createClass({
 
@@ -12,7 +13,15 @@ export default React.createClass({
     },
 
     componentDidMount: function () {
-        Api.get('/repositories', this._setData);
+        this._getApiData();
+    },
+
+    componentDidUpdate: function () {
+        this._getApiData();
+    },
+
+    _getApiData: function() {
+        Api.get('/repositories?page=' + this.props.data.page, this._setData);
     },
 
     _setData: function (data) {
@@ -25,6 +34,7 @@ export default React.createClass({
         return (
             <div className="page-repositories">
                 <RepositoryList data={this.state.data} root='/repositories/' />
+                <Paginator currentPage={this.state.current_page} lastPage={this.state.last_page} />
             </div>
         )
     }
