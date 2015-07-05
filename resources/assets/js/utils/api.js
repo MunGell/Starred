@@ -33,8 +33,9 @@ Api.prototype.removeTag = function (id, data, callback) {
     this.post('/repositories/' + id + '/tags/remove', data, callback);
 };
 
-Api.prototype.search = function(keyword, callback) {
-    this.get('/search/' + encodeURIComponent(keyword), callback)
+Api.prototype.search = function(keyword, page, callback) {
+    page = page || 1;
+    this.get('/search/' + encodeURIComponent(keyword) + '?page=' + page, callback)
 };
 
 Api.prototype._onError = function(response) {

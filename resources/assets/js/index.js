@@ -10,6 +10,7 @@ import TagPage from './pages/TagPage'
 var Routes = {
     '*': RepositoriesPage,
     'search': SearchPage,
+    'search/?page=:page': SearchPage,
     'repositories': RepositoriesPage,
     'repositories/?page=:page': RepositoriesPage,
     'repositories/:id': RepositoryPage,
