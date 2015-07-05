@@ -2,6 +2,7 @@ import React from 'react'
 import Api from '../utils/api'
 
 import RepositoryList from '../components/repository-list'
+import TagList from '../components/tag-list'
 import Paginator from '../components/paginator'
 
 export default React.createClass({
@@ -53,7 +54,8 @@ export default React.createClass({
         return (
             <div className="page-search">
                 <input type="text" placeholder="Search" ref="searchField" onChange={this._onSearchChange} />
-                <RepositoryList data={this.state.repositories.data} root='/search/' />
+                <RepositoryList data={this.state.repositories.data} root='/repositories/' />
+                <TagList data={this.state.tags.data} root='/tags/' />
                 <Paginator config={paginatorConfig} root='/search/' />
             </div>
         )
