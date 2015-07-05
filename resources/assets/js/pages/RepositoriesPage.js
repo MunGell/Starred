@@ -6,8 +6,18 @@ import Paginator from '../components/paginator'
 
 export default React.createClass({
 
+    getDefaultProps: function () {
+        return {
+            data: {
+                page: 1
+            }
+        }
+    },
+
     getInitialState: function () {
         return {
+            current_page: 1,
+            last_page: 1,
             data: []
         }
     },
@@ -16,12 +26,13 @@ export default React.createClass({
         this._getApiData();
     },
 
-    componentDidUpdate: function () {
-        this._getApiData();
+    componentWillReceiveProps: function(newProps) {
+        this._getApiData(newProps.data.page);
     },
 
-    _getApiData: function() {
-        Api.get('/repositories?page=' + this.props.data.page, this._setData);
+    _getApiData: function(page) {
+        page = page || this.props.data.page;
+        Api.get('/repositories?page=' + page, this._setData);
     },
 
     _setData: function (data) {
@@ -31,10 +42,15 @@ export default React.createClass({
     },
 
     render: function () {
+        var paginatorConfig = {
+            currentPage: this.state.current_page,
+            lastPage: this.state.last_page
+        };
+
         return (
             <div className="page-repositories">
                 <RepositoryList data={this.state.data} root='/repositories/' />
-                <Paginator currentPage={this.state.current_page} lastPage={this.state.last_page} />
+                <Paginator config={paginatorConfig} root='/repositories/' type='length-aware' />
             </div>
         )
     }
