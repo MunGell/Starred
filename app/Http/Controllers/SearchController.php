@@ -1,7 +1,5 @@
 <?php namespace App\Http\Controllers;
 
-use App\Repository;
-use App\Tag;
 use Auth;
 use Illuminate\Pagination\Paginator;
 
