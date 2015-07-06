@@ -1,0 +1,39 @@
+.page-search {
+    //
+    // Block
+    //
+    display: flex;
+    flex-direction: column;
+
+    //
+    // Elements
+    //
+    &__search-field {
+        &__input {
+            width: 100%;
+            padding: 5px;
+            font-size: 20px;
+        }
+    }
+
+    &__results {
+        display: flex;
+        flex-direction: row;
+
+        &__repositories {
+            width: 70%;
+            border-right: 1px solid #eee;
+        }
+
+        &__tags {
+            width: 30%
+        }
+
+    }
+
+    &__paginator {
+        display: flex;
+        justify-content: center;
+    }
+
+}
