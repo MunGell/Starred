@@ -1,6 +1,7 @@
 import React from 'react'
 import Api from '../utils/api'
 
+import Header from '../components/partials/header'
 import TagManager from '../components/tag-manager'
 
 export default React.createClass({
@@ -32,6 +33,7 @@ export default React.createClass({
     render: function () {
         return (
             <div className="page-repository">
+                <Header />
                 <div className="col-sm-5 col-sm-offset-2">
                     <h1>{this.state.name}</h1>
                     <p>{this.state.description}</p>

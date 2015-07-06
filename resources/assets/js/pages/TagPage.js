@@ -1,6 +1,7 @@
 import React from 'react'
 import Api from '../utils/api'
 
+import Header from '../components/partials/header'
 import RepositoryList from '../components/repository-list'
 
 export default React.createClass({
@@ -24,6 +25,7 @@ export default React.createClass({
     render: function () {
         return (
             <div className="page-tag">
+                <Header />
                 <RepositoryList data={this.state.data} root='/repositories/' />
             </div>
         )

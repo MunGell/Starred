@@ -1,6 +1,7 @@
 import React from 'react'
 import Api from '../utils/api'
 
+import Header from '../components/partials/header'
 import RepositoryList from '../components/repository-list'
 import Paginator from '../components/paginator'
 
@@ -49,8 +50,11 @@ export default React.createClass({
 
         return (
             <div className="page-repositories">
+                <Header />
                 <RepositoryList data={this.state.data} root='/repositories/' />
-                <Paginator config={paginatorConfig} root='/repositories/' type='length-aware' />
+                <div className="page-search__paginator">
+                    <Paginator config={paginatorConfig} root='/repositories/' type='length-aware' />
+                </div>
             </div>
         )
     }
