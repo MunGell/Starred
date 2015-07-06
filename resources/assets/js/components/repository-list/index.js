@@ -16,8 +16,8 @@ export default React.createClass({
                 {this.props.data.map(function (value) {
                     return (
                         <li className="component-repository-list__list__item" key={value.id}>
-                            <a href={'#' + this.props.root + value.id}>{value.full_name}</a>
-                            <p>{value.description}</p>
+                            <a className="component-repository-list__list__item__link" href={'#' + this.props.root + value.id}>{value.full_name}</a>
+                            <p className="component-repository-list__list__item__description" >{value.description}</p>
                         </li>
                     )
                 }.bind(this))}
