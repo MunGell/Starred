@@ -19,7 +19,7 @@ class SearchController extends Controller
         $tags = new Paginator($user->searchTags($keyword, Paginator::resolveCurrentPage()), $user->getPerPage());
         $repositories = new Paginator($user->searchRepositories($keyword, Paginator::resolveCurrentPage()), $user->getPerPage());
 
-        if (strlen($keyword) > 3) {
+        if (strlen($keyword) > 1) {
             return [
                 'tags' => $tags->toArray(),
                 'repositories' => $repositories->toArray()
