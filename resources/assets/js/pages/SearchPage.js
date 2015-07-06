@@ -1,6 +1,7 @@
 import React from 'react'
 import Api from '../utils/api'
 
+import Header from '../components/partials/header'
 import RepositoryList from '../components/repository-list'
 import TagList from '../components/tag-list'
 import Paginator from '../components/paginator'
@@ -14,18 +15,18 @@ export default React.createClass({
         }
     },
 
-    componentWillReceiveProps: function(newProps) {
+    componentWillReceiveProps: function (newProps) {
         this._callApi(newProps.data.page);
     },
 
-    _callApi: function(page) {
+    _callApi: function (page) {
         page = page || this.props.data.page;
         Api.search(this.refs.searchField.getDOMNode().value, page, this._setData);
     },
 
     _onSearchChange: function () {
         var keyword = this.refs.searchField.getDOMNode().value;
-        if (keyword.length > 3) {
+        if (keyword.length > 1) {
             this._callApi();
         }
     },
@@ -36,7 +37,7 @@ export default React.createClass({
         }
     },
 
-    _getPaginatorConfig: function() {
+    _getPaginatorConfig: function () {
         var repos = this.state.repositories,
             tags = this.state.tags,
             to = Math.max(repos.to, tags.to);
@@ -53,10 +54,21 @@ export default React.createClass({
         var paginatorConfig = this._getPaginatorConfig();
         return (
             <div className="page-search">
-                <input type="text" placeholder="Search" ref="searchField" onChange={this._onSearchChange} />
-                <RepositoryList data={this.state.repositories.data} root='/repositories/' />
-                <TagList data={this.state.tags.data} root='/tags/' />
-                <Paginator config={paginatorConfig} root='/search/' />
+                <Header />
+                <div className="page-search__search-field">
+                    <input className="page-search__search-field__input" type="text" placeholder="Search" ref="searchField" onChange={this._onSearchChange} />
+                </div>
+                <div className="page-search__results">
+                    <div className="page-search__results__repositories">
+                        <RepositoryList data={this.state.repositories.data} root='/repositories/' />
+                    </div>
+                    <div className="page-search__results__tags">
+                        <TagList data={this.state.tags.data} root='/tags/' />
+                    </div>
+                </div>
+                <div className="page-search__paginator">
+                    <Paginator config={paginatorConfig} root='/search/' />
+                </div>
             </div>
         )
     }
