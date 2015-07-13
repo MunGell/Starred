@@ -13,6 +13,7 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
         <link type="text/css" rel="stylesheet" href="{{ asset('css/app.css') }}">
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
     </head>
     <body class="container">
         <div id="app"></div>
