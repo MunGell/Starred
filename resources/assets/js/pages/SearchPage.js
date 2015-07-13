@@ -10,8 +10,18 @@ export default React.createClass({
 
     getInitialState: function () {
         return {
-            tags: {},
-            repositories: {}
+            tags: {
+                current_page: 0,
+                from: 0,
+                to: 0,
+                per_page: 0
+            },
+            repositories: {
+                current_page: 0,
+                from: 0,
+                to: 0,
+                per_page: 0
+            }
         }
     },
 
