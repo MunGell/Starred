@@ -1,8 +1,16 @@
+// Third-party
 @import "../../vendor/bootstrap/less/bootstrap";
+
+// Mixins
+@import "mixins/blocks";
+
+// Pages
 @import "pages/RepositoriesPage";
 @import "pages/RepositoryPage";
 @import "pages/TagPage";
 @import "pages/SearchPage";
+
+// Components
 @import "components/Partials";
 @import "components/RepositoryList";
 @import "components/TagList";
@@ -23,5 +31,10 @@ body {
 }
 
 a {
-    color: #3F85F4;
+    color: #4078c0;
+
+    &:hover {
+        color: #4078c0;
+        text-decoration: underline;
+    }
 }
