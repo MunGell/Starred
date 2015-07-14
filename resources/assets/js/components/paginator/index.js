@@ -9,7 +9,13 @@ export default React.createClass({
     getDefaultProps: function () {
         return {
             type: 'simple',
-            config: {},
+            config: {
+                currentPage: 0,
+                from: 0,
+                to: 0,
+                perPage: 0,
+                lastPage: 0
+            },
             root: ''
         }
     },
