@@ -36,7 +36,7 @@ export default React.createClass({
                 <Header />
                 <div className="page-repository__body">
                     <div className="page-repository__description">
-                        <h1>{this.state.name}</h1>
+                        <h1 className="page-repository__title">{this.state.name}</h1>
                         <p>{this.state.description}</p>
                     </div>
                     <div className="page-repository__tags">
