@@ -1,39 +1,41 @@
 .component-tag-manager {
+    @local-item-height: 20px;
 
     &__list {
         padding: 0;
         margin: 10px 0;
         list-style: none;
-
-        &__item {
-            margin-bottom: 6px;
-            font-size: 14px;
-            line-height: 16px;
-
-            &-inner {
-                position: relative;
-                padding: 2px 20px 2px 10px;
-                border-radius: 10px;
-                background: #ddd;
-            }
-
-            a {
-                color: #666;
-                text-decoration: none;
-
-                &:hover {
-                    text-decoration: none;
-                }
-            }
-
-            &__remove-button {
-                position: absolute;
-                top: 3px;
-                right: 3px;
-                cursor: pointer;
-            }
-        }
-
     }
 
+    &__tag {
+        min-height: @local-item-height;
+        line-height: @local-item-height;
+        margin-bottom: 5px;
+        font-size: 12px;
+
+        &-inner {
+            position: relative;
+            display: inline-block;
+            padding: 0 20px 0 10px;
+            border-radius: 10px;
+            background: #ddd;
+        }
+    }
+
+    &__tag-link,
+    &__tag-remove-button {
+        color: #666;
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+
+    &__tag-remove-button {
+        position: absolute;
+        top: 4px;
+        right: 4px;
+        cursor: pointer;
+    }
 }

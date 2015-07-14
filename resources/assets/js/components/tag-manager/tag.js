@@ -19,10 +19,10 @@ export default React.createClass({
 
     render: function () {
         return (
-            <li className="component-tag-manager__list__item" data-item-id={this.props.tag.id}>
-                <span className="component-tag-manager__list__item-inner">
-                    <a href={"/#/tags/" + this.props.tag.id} className="component-tag-manager__list__item__link">{this.props.tag.title}</a>
-                    <a className="component-tag-manager__list__item__remove-button glyphicon glyphicon-remove-sign" onClick={this._onRemove}></a>
+            <li className="component-tag-manager__tag" data-item-id={this.props.tag.id}>
+                <span className="component-tag-manager__tag-inner">
+                    <a href={"/#/tags/" + this.props.tag.id} className="component-tag-manager__tag-link">{this.props.tag.title}</a>
+                    <a className="component-tag-manager__tag-remove-button glyphicon glyphicon-remove-sign" onClick={this._onRemove}></a>
                 </span>
             </li>
         )
