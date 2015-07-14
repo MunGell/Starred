@@ -34,12 +34,12 @@ export default React.createClass({
         return (
             <div className="page-repository">
                 <Header />
-                <div className="col-sm-5 col-sm-offset-2">
-                    <h1>{this.state.name}</h1>
-                    <p>{this.state.description}</p>
-                </div>
-                <div className="col-sm-3">
-                    <div className="well">
+                <div className="page-repository__body">
+                    <div className="page-repository__description">
+                        <h1>{this.state.name}</h1>
+                        <p>{this.state.description}</p>
+                    </div>
+                    <div className="page-repository__tags">
                         <TagManager tags={this.state.tags} onTagAdd={this._onTagAdd} onTagRemove={this._onTagRemove} />
                     </div>
                 </div>
