@@ -5,6 +5,7 @@ use Github\ResultPager as Paginator;
 
 use App\Github\RateLimit;
 use App\Repository;
+use App\Tag;
 
 class SyncController extends Controller
 {
@@ -42,6 +43,13 @@ class SyncController extends Controller
                 'url' => $repo['repo']['html_url'],
                 'description' => $repo['repo']['description']
             ]);
+
+            if (!is_null($repo['repo']['language'])) {
+                $tag = Tag::findOrCreate($repo['repo']['language']);
+                if (!$tag->repositories()->getRelatedIds()->contains($repo['repo']['id'])) {
+                    $tag->repositories()->attach($repo['repo']['id']);
+                }
+            }
         }
 
         \Auth::user()->repositories()->sync($repo_ids);
