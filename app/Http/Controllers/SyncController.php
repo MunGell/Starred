@@ -18,6 +18,13 @@ class SyncController extends Controller
     public function index()
     {
         $token = \Auth::user()->token->token;
+
+        $limit = new RateLimit($token);
+
+        if($limit->getData()->isReached()) {
+            return redirect()->action('RepositoryController@index');
+        }
+
         $client = new Client();
         $client->authenticate($token, null, Client::AUTH_HTTP_TOKEN);
         $paginator = new Paginator($client);
@@ -55,10 +62,6 @@ class SyncController extends Controller
         \Auth::user()->repositories()->sync($repo_ids);
 
         return redirect()->action('RepositoryController@index');
-
-        // @todo: implement rate limit check before syncing
-        //$limit = new RateLimit($token);
-        //$limit->getData()->getRemaining();
     }
 
 }

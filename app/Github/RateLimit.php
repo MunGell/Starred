@@ -23,4 +23,12 @@ class RateLimit
         return $this->data->rate->remaining;
     }
 
+    public function getLimit() {
+        return $this->data->rate->limit;
+    }
+
+    public function isReached($estimation = 20) {
+        return ($this->data->rate->remaining < $estimation);
+    }
+
 }
