@@ -18,6 +18,7 @@ export default React.createClass({
     getInitialState: function () {
         return {
             limit: 9,
+            per_page: 15,
             current_page: 1,
             last_page: 1,
             data: []
