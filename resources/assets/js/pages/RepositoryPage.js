@@ -51,6 +51,10 @@ export default React.createClass({
         }
     },
 
+    _onTagClick: function(id) {
+        window.location.hash = '/tags/' + id;
+    },
+
     render: function () {
         return (
             <div className="page-repository">
@@ -61,7 +65,7 @@ export default React.createClass({
                         <p>{this.state.description}</p>
                     </div>
                     <div className="page-repository__tags">
-                        <TagManager tags={this.state.tags} onTagAdd={this._onTagAdd} onTagClear={this._onTagClear} />
+                        <TagManager tags={this.state.tags} onTagClick={this._onTagClick} onTagAdd={this._onTagAdd} onTagClear={this._onTagClear} />
                     </div>
                 </div>
             </div>

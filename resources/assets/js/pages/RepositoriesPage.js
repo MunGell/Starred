@@ -21,6 +21,7 @@ export default React.createClass({
             per_page: 15,
             current_page: 1,
             last_page: 1,
+            total: 0,
             data: []
         }
     },

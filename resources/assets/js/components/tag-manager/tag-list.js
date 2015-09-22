@@ -8,16 +8,14 @@ export default React.createClass({
 
     getDefaultProps: function () {
         return {
-            tags: [],
-            onTagAdd: function() {},
-            onTagClear: function() {}
+            tags: []
         };
     },
 
     render: function () {
         return (
             <div className="component-tag-manager__list">
-                { this.props.tags.map(tag => <Tag key={"tag_" + tag.id} id={tag.id} label={tag.title} onClear={this.props.onTagClear} />) }
+                { this.props.tags.map(tag => <Tag key={"tag_" + tag.id} id={tag.id} label={tag.title} onClick={this.props.onTagClick} onClear={this.props.onTagClear} />) }
             </div>
         )
     }

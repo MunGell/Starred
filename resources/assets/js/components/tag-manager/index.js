@@ -8,7 +8,10 @@ export default React.createClass({
 
     getDefaultProps: function () {
         return {
-            tags: []
+            tags: [],
+            onTagClick: function() {},
+            onTagAdd: function() {},
+            onTagClear: function() {}
         }
     },
 
@@ -16,7 +19,7 @@ export default React.createClass({
         return (
             <div className="component-tag-manager">
                 <Form onTagAdd={this.props.onTagAdd} />
-                <TagList tags={this.props.tags} onTagClear={this.props.onTagClear} />
+                <TagList tags={this.props.tags} onTagClick={this.props.onTagClick} onTagClear={this.props.onTagClear} />
             </div>
         )
     }

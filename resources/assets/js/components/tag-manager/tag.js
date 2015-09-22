@@ -6,13 +6,12 @@ export default React.createClass({
     getDefaultProps: function () {
         return {
             id: 0,
-            title: '',
-            onClear: function () {}
+            title: ''
         }
     },
 
     _onClick: function() {
-        debugger
+        this.props.onClick(this.props.id);
     },
 
     _onClear: function() {
