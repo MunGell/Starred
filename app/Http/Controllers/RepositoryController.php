@@ -43,7 +43,8 @@ class RepositoryController extends Controller
     public function removeTag($id)
     {
         $tag_id = Input::get('tag');
-        $tag = Tag::find($tag_id)->first();
+        $tag = Tag::find($tag_id);
+
         $tag->repositories()->detach($id);
 
         return [
