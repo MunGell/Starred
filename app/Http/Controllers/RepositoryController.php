@@ -20,7 +20,7 @@ class RepositoryController extends Controller
     public function show($id)
     {
         $repo = Repository::find($id);
-        $repo->tags = $repo->tags(Auth::user()->id);
+        $repo->tags = array_values($repo->tags(Auth::user()->id)->toArray());
 
         return $repo;
     }
@@ -46,6 +46,9 @@ class RepositoryController extends Controller
         $tag = Tag::find($tag_id)->first();
         $tag->repositories()->detach($id);
 
-        return 'true';
+        return [
+            'id' => $tag_id,
+            'removed' => true
+        ];
     }
 }
