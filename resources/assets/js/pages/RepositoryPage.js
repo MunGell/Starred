@@ -8,7 +8,8 @@ export default React.createClass({
 
     getInitialState: function () {
         return {
-            data: {}
+            description: '',
+            tags: []
         }
     },
 
@@ -22,12 +23,32 @@ export default React.createClass({
         }
     },
 
-    _onTagAdd: function (data, callback) {
-        Api.addTag(this.state.id, data, callback);
+    _onTagAdd: function (title) {
+        Api.addTag(this.state.id, { title: title }, this._onStateTagAdd);
     },
 
-    _onTagRemove: function (id, callback) {
-        Api.removeTag(this.state.id, { 'tag': id }, callback);
+    _onStateTagAdd: function (response) {
+        var newState = this.state;
+        newState.tags.push(response[0]);
+        this.setState(newState);
+    },
+
+    _onTagClear: function (id) {
+        Api.removeTag(this.state.id, { 'tag': id }, this._onStateTagRemove);
+    },
+
+    _onStateTagRemove: function(response) {
+        var i, tag, newState = this.state;
+
+        for (i in this.state.tags) {
+            if (this.state.tags.hasOwnProperty(i)) {
+                tag = this.state.tags[i];
+                if (tag.id === parseInt(response.id)) {
+                    newState.tags.splice(i, 1);
+                    this.setState(newState);
+                }
+            }
+        }
     },
 
     render: function () {
@@ -40,7 +61,7 @@ export default React.createClass({
                         <p>{this.state.description}</p>
                     </div>
                     <div className="page-repository__tags">
-                        <TagManager tags={this.state.tags} onTagAdd={this._onTagAdd} onTagRemove={this._onTagRemove} />
+                        <TagManager tags={this.state.tags} onTagAdd={this._onTagAdd} onTagClear={this._onTagClear} />
                     </div>
                 </div>
             </div>

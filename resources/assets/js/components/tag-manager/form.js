@@ -5,9 +5,7 @@ export default React.createClass({
 
     _onSubmit: function (event) {
         event.preventDefault();
-        $(document).trigger('component.tag-manager.list.add', {
-            title: event.currentTarget[0].value
-        });
+        this.props.onTagAdd(event.currentTarget[0].value);
         event.currentTarget[0].value = '';
     },
 

@@ -7,35 +7,14 @@
         list-style: none;
     }
 
-    &__tag {
-        min-height: @local-item-height;
-        line-height: @local-item-height;
-        margin-bottom: 5px;
-        font-size: 12px;
-
-        &-inner {
-            position: relative;
-            display: inline-block;
-            padding: 0 20px 0 10px;
-            border-radius: 10px;
-            background: #ddd;
+    .Pill {
+        &__label {
+            margin-right: 0;
+        }
+        &__clear {
+            margin-left: 0;
+            border-left: 1px solid #585858;
         }
     }
 
-    &__tag-link,
-    &__tag-remove-button {
-        color: #666;
-        text-decoration: none;
-
-        &:hover {
-            text-decoration: none;
-        }
-    }
-
-    &__tag-remove-button {
-        position: absolute;
-        top: 4px;
-        right: 4px;
-        cursor: pointer;
-    }
 }
