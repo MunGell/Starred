@@ -62,10 +62,6 @@ class AuthController extends Controller
 
     public function getLogin()
     {
-        // @todo: temp: offline mode
-        Auth::loginUsingId(812976);
-        return redirect('/');
-
         return Socialite::with('github')->redirect();
     }
 
