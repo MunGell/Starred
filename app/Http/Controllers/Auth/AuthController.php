@@ -14,8 +14,6 @@ class AuthController extends Controller
 {
     /**
      * Create a new authentication controller instance.
-     *
-     * @return void
      */
     public function __construct()
     {
@@ -40,21 +38,19 @@ class AuthController extends Controller
     /**
      * Create a new user instance after a valid registration.
      *
-     * @param  array  $data
+     * @param $userdata
      * @return User
      */
-    protected function create(array $data)
+    protected function create($userdata)
     {
-        $user = User::updateOrCreate(['id' => $data['id']], [
-            'login' => $data['nickname'],
-            'avatar' => $data['avatar'],
+        $user = User::updateOrCreate(['id' => $userdata->id], [
+            'login' => $userdata->nickname,
+            'avatar' => $userdata->avatar,
         ]);
 
-        Token::updateOrCreate([
-            'id' => $data['id']
-        ], [
-            'token' => $data['token'],
-            'auth' => bcrypt($data['token']),
+        Token::updateOrCreate(['id' => $userdata->id], [
+            'token' => $userdata->token,
+            'auth' => bcrypt($userdata->token),
         ]);
 
         return $user;
@@ -67,10 +63,10 @@ class AuthController extends Controller
 
     public function getCallback()
     {
-        $github_user = Socialite::driver('github')->user();
-        $user = $this->create((array) $github_user);
-        Auth::loginUsingId($user->id);
+        $userdata = Socialite::driver('github')->user();
+        $this->create($userdata);
+        Auth::loginUsingId($userdata->id);
 
-        return redirect('/');
+        return redirect('/sync');
     }
 }
