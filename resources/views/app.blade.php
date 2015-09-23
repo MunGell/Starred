@@ -9,7 +9,7 @@
 <html class="no-js"> <!--<![endif]-->
     <head>
         <meta charset="utf-8">
-        <title>HubMarks</title>
+        <title>Starred By Me | GitHub Repository Explorer</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
         <link type="text/css" rel="stylesheet" href="{{ asset('css/app.css') }}">
