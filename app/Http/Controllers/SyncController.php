@@ -61,7 +61,7 @@ class SyncController extends Controller
 
         \Auth::user()->repositories()->sync($repo_ids);
 
-        return redirect()->action('RepositoryController@index');
+        return redirect()->action('AppController@index');
     }
 
 }
