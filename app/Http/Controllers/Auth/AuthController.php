@@ -62,12 +62,12 @@ class AuthController extends Controller
 
     public function getLogin()
     {
-        return Socialite::with('github')->redirect();
+        return Socialite::driver('github')->redirect();
     }
 
     public function getCallback()
     {
-        $github_user = Socialite::with('github')->user();
+        $github_user = Socialite::driver('github')->user();
         $user = $this->create((array) $github_user);
         Auth::loginUsingId($user->id);
 
