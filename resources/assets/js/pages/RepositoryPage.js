@@ -65,7 +65,7 @@ export default React.createClass({
                 <div className="page-repository__body">
                     <div className="page-repository__content">
                         <div className="page-repository__title">
-                            <a className="page-repository__github-link" href={this.state.url}><Glyph icon="mark-github" /></a>
+                            <a className="page-repository__github-link" href={this.state.url}><Glyph icon="mark-github" target="_blank" /></a>
                             <h1>{this.state.name}</h1>
                         </div>
                         <div className="page-repository__description">
