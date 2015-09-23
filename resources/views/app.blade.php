@@ -14,10 +14,6 @@
         <meta name="viewport" content="width=device-width">
         <link type="text/css" rel="stylesheet" href="{{ asset('css/app.css') }}">
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
-    </head>
-    <body class="container">
-        <div id="app"></div>
-        <script type="text/javascript" src="{{ asset('js/bundle.js') }}"></script>
         <script>
             (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
                         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -26,7 +22,6 @@
             ga('create', 'UA-57895459-4', 'auto');
             ga('send', 'pageview');
         </script>
-        <!-- Yandex.Metrika counter -->
         <script type="text/javascript">
             (function (d, w, c) {
                 (w[c] = w[c] || []).push(function() {
@@ -55,6 +50,9 @@
             })(document, window, "yandex_metrika_callbacks");
         </script>
         <noscript><div><img src="https://mc.yandex.ru/watch/32662145" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-        <!-- /Yandex.Metrika counter -->
+    </head>
+    <body class="container">
+        <div id="app"></div>
+        <script type="text/javascript" src="{{ asset('js/bundle.js') }}"></script>
     </body>
 </html>
