@@ -67,6 +67,6 @@ class AuthController extends Controller
         $this->create($userdata);
         Auth::loginUsingId($userdata->id);
 
-        return redirect('/');
+        return redirect('/sync');
     }
 }
