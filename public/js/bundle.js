@@ -44557,7 +44557,7 @@ exports['default'] = _react2['default'].createClass({
                 _react2['default'].createElement(
                     'a',
                     { className: 'component-header__logo__link', href: '/' },
-                    'HubMarks'
+                    'Starred By Me'
                 )
             ),
             _react2['default'].createElement(
@@ -44579,6 +44579,15 @@ exports['default'] = _react2['default'].createClass({
                         'a',
                         { className: 'component-header__menu__item__link', href: '/#/repositories' },
                         'Repositories'
+                    )
+                ),
+                _react2['default'].createElement(
+                    'li',
+                    { className: 'component-header__menu__item' },
+                    _react2['default'].createElement(
+                        'a',
+                        { className: 'component-header__menu__item__link', href: '/sync' },
+                        'Sync'
                     )
                 )
             )

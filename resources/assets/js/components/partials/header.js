@@ -7,7 +7,7 @@ export default React.createClass({
         return (
             <div className="component-header">
                 <div className="component-header__logo">
-                    <a className="component-header__logo__link" href="/">HubMarks</a>
+                    <a className="component-header__logo__link" href="/">Starred By Me</a>
                 </div>
                 <ul className="component-header__menu">
                     <li className="component-header__menu__item">
@@ -15,6 +15,9 @@ export default React.createClass({
                     </li>
                     <li className="component-header__menu__item">
                         <a className="component-header__menu__item__link" href="/#/repositories">Repositories</a>
+                    </li>
+                    <li className="component-header__menu__item">
+                        <a className="component-header__menu__item__link" href="/sync">Sync</a>
                     </li>
                 </ul>
             </div>
