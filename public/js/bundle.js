@@ -45125,7 +45125,7 @@ exports['default'] = _react2['default'].createClass({
                         _react2['default'].createElement(
                             'a',
                             { className: 'page-repository__github-link', href: this.state.url },
-                            _react2['default'].createElement(_elementalLibComponentsGlyph2['default'], { icon: 'mark-github' })
+                            _react2['default'].createElement(_elementalLibComponentsGlyph2['default'], { icon: 'mark-github', target: '_blank' })
                         ),
                         _react2['default'].createElement(
                             'h1',
