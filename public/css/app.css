@@ -10813,11 +10813,20 @@ textarea.FormInput {
   -ms-flex-direction: row;
   flex-direction: row;
 }
+.page-repository__content {
+  width: 75%;
+}
 .page-repository__title {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
   margin: 0 0 10px 0;
 }
-.page-repository__description {
-  width: 75%;
+.page-repository__title h1 {
+  margin: 0;
 }
 .page-repository__tags {
   width: 25%;
@@ -10825,6 +10834,14 @@ textarea.FormInput {
   border: 1px solid #f1f1f1;
   border-radius: 4px;
   background: #f5f5f5;
+}
+.page-repository__github-link {
+  margin-right: 10px;
+  line-height: 42px;
+}
+.page-repository__github-link .octicon {
+  color: #000011;
+  font-size: 42px;
 }
 .page-search {
   display: -webkit-flex;

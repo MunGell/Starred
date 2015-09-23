@@ -1,6 +1,8 @@
 import React from 'react'
 import Api from '../utils/api'
 
+import Glyph from 'elemental/lib/components/Glyph'
+
 import Header from '../components/partials/header'
 import TagManager from '../components/tag-manager'
 
@@ -9,6 +11,7 @@ export default React.createClass({
     getInitialState: function () {
         return {
             description: '',
+            url: '',
             tags: []
         }
     },
@@ -60,9 +63,14 @@ export default React.createClass({
             <div className="page-repository">
                 <Header />
                 <div className="page-repository__body">
-                    <div className="page-repository__description">
-                        <h1 className="page-repository__title">{this.state.name}</h1>
-                        <p>{this.state.description}</p>
+                    <div className="page-repository__content">
+                        <div className="page-repository__title">
+                            <a className="page-repository__github-link" href={this.state.url}><Glyph icon="mark-github" /></a>
+                            <h1>{this.state.name}</h1>
+                        </div>
+                        <div className="page-repository__description">
+                            <p>{this.state.description}</p>
+                        </div>
                     </div>
                     <div className="page-repository__tags">
                         <TagManager tags={this.state.tags} onTagClick={this._onTagClick} onTagAdd={this._onTagAdd} onTagClear={this._onTagClear} />
