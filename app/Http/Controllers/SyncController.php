@@ -17,7 +17,7 @@ class SyncController extends Controller
         $job = new SyncRepos($user);
         $this->dispatch($job);
 
-        return redirect()->action('AppController@index');
+        return redirect('/#/repositories');
     }
 
 }
