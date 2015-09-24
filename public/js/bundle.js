@@ -44987,7 +44987,11 @@ exports['default'] = _react2['default'].createClass({
                     _react2['default'].createElement(
                         'div',
                         { className: 'page-landing__feature-icon' },
-                        _react2['default'].createElement(_elementalLibComponentsGlyph2['default'], { icon: 'repo-sync' })
+                        _react2['default'].createElement(
+                            'a',
+                            { href: '/sync' },
+                            _react2['default'].createElement(_elementalLibComponentsGlyph2['default'], { icon: 'repo-sync' })
+                        )
                     ),
                     _react2['default'].createElement(
                         'h3',
@@ -45001,7 +45005,11 @@ exports['default'] = _react2['default'].createClass({
                     _react2['default'].createElement(
                         'div',
                         { className: 'page-landing__feature-icon' },
-                        _react2['default'].createElement(_elementalLibComponentsGlyph2['default'], { icon: 'tag' })
+                        _react2['default'].createElement(
+                            'a',
+                            { href: '/#/repositories' },
+                            _react2['default'].createElement(_elementalLibComponentsGlyph2['default'], { icon: 'tag' })
+                        )
                     ),
                     _react2['default'].createElement(
                         'h3',
@@ -45015,7 +45023,11 @@ exports['default'] = _react2['default'].createClass({
                     _react2['default'].createElement(
                         'div',
                         { className: 'page-landing__feature-icon' },
-                        _react2['default'].createElement(_elementalLibComponentsGlyph2['default'], { icon: 'search' })
+                        _react2['default'].createElement(
+                            'a',
+                            { href: '/#/search' },
+                            _react2['default'].createElement(_elementalLibComponentsGlyph2['default'], { icon: 'search' })
+                        )
                     ),
                     _react2['default'].createElement(
                         'h3',

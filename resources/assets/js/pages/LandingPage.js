@@ -22,7 +22,7 @@ export default React.createClass({
                 <div className="page-landing__features">
                     <div className="page-landing__feature">
                         <div className="page-landing__feature-icon">
-                            <Glyph icon="repo-sync" />
+                            <a href="/sync"><Glyph icon="repo-sync" /></a>
                         </div>
                         <h3 className="page-landing__feature-description">
                             Sync your starred repositories
@@ -30,7 +30,7 @@ export default React.createClass({
                     </div>
                     <div className="page-landing__feature">
                         <div className="page-landing__feature-icon">
-                            <Glyph icon="tag" />
+                            <a href="/#/repositories"><Glyph icon="tag" /></a>
                         </div>
                         <h3 className="page-landing__feature-description">
                             Categorise repositories with tags
@@ -38,7 +38,7 @@ export default React.createClass({
                     </div>
                     <div className="page-landing__feature">
                         <div className="page-landing__feature-icon">
-                            <Glyph icon="search" />
+                            <a href="/#/search"><Glyph icon="search" /></a>
                         </div>
                         <h3 className="page-landing__feature-description">
                             Search your starred repositories
