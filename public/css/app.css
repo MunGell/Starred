@@ -10797,6 +10797,45 @@ textarea.FormInput {
   word-wrap: normal;
   /* 2 */
 }
+.page-landing__title {
+  text-align: center;
+}
+.page-landing__features {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 50px;
+}
+.page-landing__feature {
+  width: 33.33333333%;
+}
+.page-landing__feature-icon {
+  text-align: center;
+}
+.page-landing__feature-icon .octicon {
+  font-size: 42px;
+}
+.page-landing__feature-description {
+  padding: 10px;
+  text-align: center;
+}
+.page-landing__cta {
+  text-align: center;
+}
+.page-landing__login-button {
+  padding: 10px;
+  border-radius: 4px;
+  background: #42aaff;
+  color: #ffffff;
+  font-size: 42px;
+}
+.page-landing__login-button,
+.page-landing__login-button:hover,
+.page-landing__login-button:link,
+.page-landing__login-button:active {
+  color: #ffffff;
+  text-decoration: none;
+}
 .page-repositories__paginator {
   display: -webkit-flex;
   display: -ms-flexbox;
