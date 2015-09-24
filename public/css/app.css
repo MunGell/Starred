@@ -10823,7 +10823,7 @@ textarea.FormInput {
   text-align: center;
 }
 .page-landing__login-button {
-  padding: 10px;
+  padding: 10px 40px;
   border-radius: 4px;
   background: #42aaff;
   color: #ffffff;
