@@ -45032,7 +45032,7 @@ exports['default'] = _react2['default'].createClass({
                     _react2['default'].createElement(
                         'h3',
                         { className: 'page-landing__feature-description' },
-                        'Search your starred repositories'
+                        'Find your starred repositories'
                     )
                 )
             ),
