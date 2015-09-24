@@ -41,7 +41,7 @@ export default React.createClass({
                             <Glyph icon="search" />
                         </div>
                         <h3 className="page-landing__feature-description">
-                            Search your starred repositories
+                            Find your starred repositories
                         </h3>
                     </div>
                 </div>
