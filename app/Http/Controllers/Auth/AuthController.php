@@ -65,7 +65,7 @@ class AuthController extends Controller
     {
         $userdata = Socialite::driver('github')->user();
         $this->create($userdata);
-        Auth::loginUsingId($userdata->id);
+        Auth::loginUsingId($userdata->id, true);
 
         return redirect('/sync');
     }
