@@ -1,4 +1,3 @@
-import $ from 'jquery'
 import React from 'react'
 
 import Simple from './simple'
