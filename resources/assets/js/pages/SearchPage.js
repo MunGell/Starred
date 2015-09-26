@@ -4,18 +4,13 @@ import Api from '../utils/api'
 import Header from '../components/partials/header'
 import RepositoryList from '../components/repository-list'
 import TagList from '../components/tag-list'
-import Paginator from '../components/paginator'
+import Pager from '../components/pager'
 
 export default React.createClass({
 
     getInitialState: function () {
         return {
-            tags: {
-                current_page: 0,
-                from: 0,
-                to: 0,
-                per_page: 0
-            },
+            tags: [],
             repositories: {
                 current_page: 0,
                 from: 0,
@@ -23,10 +18,6 @@ export default React.createClass({
                 per_page: 0
             }
         }
-    },
-
-    componentWillReceiveProps: function (newProps) {
-        this._callApi(newProps.data.page);
     },
 
     _callApi: function (page) {
@@ -47,21 +38,23 @@ export default React.createClass({
         }
     },
 
-    _getPaginatorConfig: function () {
-        var repos = this.state.repositories,
-            tags = this.state.tags,
-            to = Math.max(repos.to, tags.to);
+    _onPagerClickNext: function() {
+        this._callApi(this.state.repositories.current_page + 1);
+    },
 
-        return {
-            currentPage: repos.current_page,
-            from: repos.from,
-            to: to,
-            perPage: repos.per_page
-        }
+    _onPagerClickPrev: function() {
+        this._callApi(this.state.repositories.current_page - 1);
+    },
+
+    _renderPager: function() {
+        let repos = this.state.repositories;
+        let pagerDisabled = repos.current_page === repos.from ? 'prev' : repos.current_page === repos.to ? 'next' :  null;
+        return repos.current_page > 0 ? <Pager onClickNext={this._onPagerClickNext} onClickPrev={this._onPagerClickPrev}
+                                                    disabled={pagerDisabled}/> : null;
     },
 
     render: function () {
-        var paginatorConfig = this._getPaginatorConfig();
+
         return (
             <div className="page-search">
                 <Header />
@@ -73,11 +66,11 @@ export default React.createClass({
                         <RepositoryList data={this.state.repositories.data} root='/repositories/' />
                     </div>
                     <div className="page-search__results__tags">
-                        <TagList data={this.state.tags.data} root='/tags/' />
+                        <TagList data={this.state.tags} root='/tags/' />
                     </div>
                 </div>
                 <div className="page-search__paginator">
-                    <Paginator config={paginatorConfig} root='/search/' />
+                    {this._renderPager()}
                 </div>
             </div>
         )
