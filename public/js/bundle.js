@@ -32771,10 +32771,11 @@ exports['default'] = _react2['default'].createClass({
         return {
             tags: [],
             repositories: {
-                current_page: 0,
+                current_page: 1,
                 from: 0,
                 to: 0,
-                per_page: 0
+                per_page: 0,
+                data: []
             }
         };
     },
@@ -32807,9 +32808,18 @@ exports['default'] = _react2['default'].createClass({
 
     _renderPager: function _renderPager() {
         var repos = this.state.repositories;
-        var pagerDisabled = repos.current_page === repos.from ? 'prev' : repos.current_page === repos.to ? 'next' : null;
-        return repos.current_page > 0 ? _react2['default'].createElement(_componentsPager2['default'], { onClickNext: this._onPagerClickNext, onClickPrev: this._onPagerClickPrev,
-            disabled: pagerDisabled }) : null;
+        var pagerDisabled = null;
+
+        if (repos.current_page === 1 && repos.data.length === 0) {
+            return null;
+        } else if (repos.current_page === 1) {
+            pagerDisabled = 'prev';
+        } else if (repos.data.length === 0) {
+            pagerDisabled = 'next';
+        }
+
+        return _react2['default'].createElement(_componentsPager2['default'], { onClickNext: this._onPagerClickNext, onClickPrev: this._onPagerClickPrev,
+            disabled: pagerDisabled });
     },
 
     render: function render() {
@@ -32821,7 +32831,8 @@ exports['default'] = _react2['default'].createClass({
             _react2['default'].createElement(
                 'div',
                 { className: 'page-search__search-field' },
-                _react2['default'].createElement('input', { className: 'page-search__search-field__input', type: 'text', placeholder: 'Search', ref: 'searchField', onChange: this._onSearchChange })
+                _react2['default'].createElement('input', { className: 'page-search__search-field__input', type: 'text', placeholder: 'Search',
+                    ref: 'searchField', onChange: this._onSearchChange })
             ),
             _react2['default'].createElement(
                 'div',
