@@ -11001,6 +11001,26 @@ textarea.FormInput {
   margin-left: 0;
   border-left: 1px solid #585858;
 }
+.component-pager__button {
+  background: none;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+  color: #666;
+  cursor: pointer;
+  padding: 5px 10px;
+}
+.component-pager__button:first-child {
+  margin-right: 5px;
+}
+.component-pager__button:last-child {
+  margin-left: 5px;
+}
+.component-pager__button:hover,
+.component-pager__button:focus {
+  background-color: rgba(0, 0, 0, 0.05);
+  border-color: rgba(0, 0, 0, 0.05);
+  outline: none;
+}
 * {
   box-sizing: border-box;
 }

@@ -14,12 +14,12 @@ class SearchController extends Controller
     public function index($keyword = '')
     {
         $user = Auth::user();
-        $tags = new Paginator($user->searchTags($keyword, Paginator::resolveCurrentPage()), $user->getPerPage());
+        $tags = $user->searchTags($keyword);
         $repositories = new Paginator($user->searchRepositories($keyword, Paginator::resolveCurrentPage()), $user->getPerPage());
 
         if (strlen($keyword) > 1) {
             return [
-                'tags' => $tags->toArray(),
+                'tags' => $tags,
                 'repositories' => $repositories->toArray()
             ];
         }
