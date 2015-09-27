@@ -32082,7 +32082,7 @@ exports["default"] = _react2["default"].createClass({
                 { className: "component-header__logo" },
                 _react2["default"].createElement(
                     "a",
-                    { className: "component-header__logo__link", href: "/" },
+                    { className: "component-header__logo__link", href: "/#/repositories" },
                     "Starred By Me"
                 )
             ),
