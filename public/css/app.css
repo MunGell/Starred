@@ -3986,6 +3986,14 @@ textarea.FormInput {
   color: #000011;
   font-size: 42px;
 }
+.page-tag__paginator {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
 .page-search {
   display: -webkit-flex;
   display: -ms-flexbox;
