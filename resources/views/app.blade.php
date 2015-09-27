@@ -51,7 +51,7 @@
         </script>
         <noscript><div><img src="https://mc.yandex.ru/watch/32662145" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
     </head>
-    <body class="container">
+    <body>
         <div id="app"></div>
         <script type="text/javascript" src="{{ asset('js/bundle.js') }}"></script>
     </body>

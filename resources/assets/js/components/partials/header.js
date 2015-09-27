@@ -6,7 +6,7 @@ export default React.createClass({
         return (
             <div className="component-header">
                 <div className="component-header__logo">
-                    <a className="component-header__logo__link" href="/">Starred By Me</a>
+                    <a className="component-header__logo__link" href="/#/repositories">Starred By Me</a>
                 </div>
                 <ul className="component-header__menu">
                     <li className="component-header__menu__item">

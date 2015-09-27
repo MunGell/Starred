@@ -10,10 +10,9 @@ export default React.createClass({
 
     render: function () {
         return (
-            <div className="component__tag-manager__form">
+            <div className="component-tag-manager__form">
                 <form onSubmit={this._onSubmit}>
-                    <label for="tagInput" className="sr-only">Add a tag</label>
-                    <input type="text" name="title" className="form-control" id="tagInput" placeholder="Add a tag"/>
+                    <input type="text" name="title" className="component-tag-manager__input" id="tagInput" placeholder="Add a tag"/>
                 </form>
             </div>
         )

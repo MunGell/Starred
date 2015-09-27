@@ -12,10 +12,11 @@ export default React.createClass({
         return {
             tags: [],
             repositories: {
-                current_page: 0,
+                current_page: 1,
                 from: 0,
                 to: 0,
-                per_page: 0
+                per_page: 0,
+                data: []
             }
         }
     },
@@ -38,19 +39,28 @@ export default React.createClass({
         }
     },
 
-    _onPagerClickNext: function() {
+    _onPagerClickNext: function () {
         this._callApi(this.state.repositories.current_page + 1);
     },
 
-    _onPagerClickPrev: function() {
+    _onPagerClickPrev: function () {
         this._callApi(this.state.repositories.current_page - 1);
     },
 
-    _renderPager: function() {
+    _renderPager: function () {
         let repos = this.state.repositories;
-        let pagerDisabled = repos.current_page === repos.from ? 'prev' : repos.current_page === repos.to ? 'next' :  null;
-        return repos.current_page > 0 ? <Pager onClickNext={this._onPagerClickNext} onClickPrev={this._onPagerClickPrev}
-                                                    disabled={pagerDisabled}/> : null;
+        let pagerDisabled = null;
+
+        if (repos.current_page === 1 && repos.data.length === 0) {
+            return null;
+        } else if (repos.current_page === 1) {
+            pagerDisabled = 'prev';
+        } else if (repos.data.length === 0) {
+            pagerDisabled = 'next';
+        }
+
+        return <Pager onClickNext={this._onPagerClickNext} onClickPrev={this._onPagerClickPrev}
+                      disabled={pagerDisabled}/>;
     },
 
     render: function () {
@@ -59,14 +69,15 @@ export default React.createClass({
             <div className="page-search">
                 <Header />
                 <div className="page-search__search-field">
-                    <input className="page-search__search-field__input" type="text" placeholder="Search" ref="searchField" onChange={this._onSearchChange} />
+                    <input className="page-search__search-field__input" type="text" placeholder="Search"
+                           ref="searchField" onChange={this._onSearchChange}/>
                 </div>
                 <div className="page-search__results">
                     <div className="page-search__results__repositories">
-                        <RepositoryList data={this.state.repositories.data} root='/repositories/' />
+                        <RepositoryList data={this.state.repositories.data} root='/repositories/'/>
                     </div>
                     <div className="page-search__results__tags">
-                        <TagList data={this.state.tags} root='/tags/' />
+                        <TagList data={this.state.tags} root='/tags/'/>
                     </div>
                 </div>
                 <div className="page-search__paginator">
