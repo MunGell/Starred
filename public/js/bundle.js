@@ -32244,16 +32244,11 @@ exports['default'] = _react2['default'].createClass({
     render: function render() {
         return _react2['default'].createElement(
             'div',
-            { className: 'component__tag-manager__form' },
+            { className: 'component-tag-manager__form' },
             _react2['default'].createElement(
                 'form',
                 { onSubmit: this._onSubmit },
-                _react2['default'].createElement(
-                    'label',
-                    { 'for': 'tagInput', className: 'sr-only' },
-                    'Add a tag'
-                ),
-                _react2['default'].createElement('input', { type: 'text', name: 'title', className: 'form-control', id: 'tagInput', placeholder: 'Add a tag' })
+                _react2['default'].createElement('input', { type: 'text', name: 'title', className: 'component-tag-manager__input', id: 'tagInput', placeholder: 'Add a tag' })
             )
         );
     }
