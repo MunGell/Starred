@@ -5,17 +5,14 @@
     align-items: center;
     height: 100%;
     width: 100%;
+    overflow: hidden;
     background-image: linear-gradient(45deg, #4fa49a, #4361c2);
-
-    //&:after {
-    //    position: absolute;
-    //
-    //}
 
     &__title {
         text-align: center;
 
         h1 {
+            margin: 0 0 10px 0;
             color: #fff;
             font-size: 42px;
         }
@@ -28,7 +25,10 @@
 
     &__features {
         display: flex;
-        padding: 50px;
+        justify-content: space-around;
+        width: 80%;
+        max-width: 600px;
+        margin: 25px 0;
     }
 
     &__feature {
@@ -37,7 +37,7 @@
         justify-content: center;
         align-items: center;
         width: 100% / 3;
-        margin: 15px;
+        margin: 0 15px;
 
         a, a:hover {
             text-decoration: none;
@@ -48,9 +48,8 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        min-width: 100px;
-        min-height: 100px;
-        margin: 15px;
+        min-width: 80px;
+        min-height: 80px;
         border: solid 1px rgba(255, 255, 255, 0.5);
         border-radius: 4px;
         transform: rotate(45deg);
@@ -69,6 +68,7 @@
 
     &__feature-description {
         padding: 10px;
+        margin: 10px 0 0 0;
         color: #fff;
         text-align: center;
     }
