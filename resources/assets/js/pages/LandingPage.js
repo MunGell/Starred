@@ -21,27 +21,33 @@ export default React.createClass({
                 </div>
                 <div className="page-landing__features">
                     <div className="page-landing__feature">
-                        <div className="page-landing__feature-icon">
-                            <a href="/sync"><Glyph icon="repo-sync" /></a>
-                        </div>
+                        <a href="/sync">
+                            <div className="page-landing__feature-icon">
+                                <Glyph icon="repo-sync" />
+                            </div>
+                        </a>
                         <h3 className="page-landing__feature-description">
-                            Sync your starred repositories
+                            Sync
                         </h3>
                     </div>
                     <div className="page-landing__feature">
-                        <div className="page-landing__feature-icon">
-                            <a href="/#/repositories"><Glyph icon="tag" /></a>
-                        </div>
+                        <a href="/#/repositories">
+                            <div className="page-landing__feature-icon">
+                                <Glyph icon="tag" />
+                            </div>
+                        </a>
                         <h3 className="page-landing__feature-description">
-                            Categorise repositories with tags
+                            Tag
                         </h3>
                     </div>
                     <div className="page-landing__feature">
-                        <div className="page-landing__feature-icon">
-                            <a href="/#/search"><Glyph icon="search" /></a>
-                        </div>
+                        <a href="/#/search">
+                            <div className="page-landing__feature-icon">
+                                <Glyph icon="search" />
+                            </div>
+                        </a>
                         <h3 className="page-landing__feature-description">
-                            Find your starred repositories
+                            Find
                         </h3>
                     </div>
                 </div>

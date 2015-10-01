@@ -32433,54 +32433,54 @@ exports['default'] = _react2['default'].createClass({
                     'div',
                     { className: 'page-landing__feature' },
                     _react2['default'].createElement(
-                        'div',
-                        { className: 'page-landing__feature-icon' },
+                        'a',
+                        { href: '/sync' },
                         _react2['default'].createElement(
-                            'a',
-                            { href: '/sync' },
+                            'div',
+                            { className: 'page-landing__feature-icon' },
                             _react2['default'].createElement(_elementalLibComponentsGlyph2['default'], { icon: 'repo-sync' })
                         )
                     ),
                     _react2['default'].createElement(
                         'h3',
                         { className: 'page-landing__feature-description' },
-                        'Sync your starred repositories'
+                        'Sync'
                     )
                 ),
                 _react2['default'].createElement(
                     'div',
                     { className: 'page-landing__feature' },
                     _react2['default'].createElement(
-                        'div',
-                        { className: 'page-landing__feature-icon' },
+                        'a',
+                        { href: '/#/repositories' },
                         _react2['default'].createElement(
-                            'a',
-                            { href: '/#/repositories' },
+                            'div',
+                            { className: 'page-landing__feature-icon' },
                             _react2['default'].createElement(_elementalLibComponentsGlyph2['default'], { icon: 'tag' })
                         )
                     ),
                     _react2['default'].createElement(
                         'h3',
                         { className: 'page-landing__feature-description' },
-                        'Categorise repositories with tags'
+                        'Tag'
                     )
                 ),
                 _react2['default'].createElement(
                     'div',
                     { className: 'page-landing__feature' },
                     _react2['default'].createElement(
-                        'div',
-                        { className: 'page-landing__feature-icon' },
+                        'a',
+                        { href: '/#/search' },
                         _react2['default'].createElement(
-                            'a',
-                            { href: '/#/search' },
+                            'div',
+                            { className: 'page-landing__feature-icon' },
                             _react2['default'].createElement(_elementalLibComponentsGlyph2['default'], { icon: 'search' })
                         )
                     ),
                     _react2['default'].createElement(
                         'h3',
                         { className: 'page-landing__feature-description' },
-                        'Find your starred repositories'
+                        'Find'
                     )
                 )
             ),

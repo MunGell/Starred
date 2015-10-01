@@ -3901,8 +3901,33 @@ textarea.FormInput {
   word-wrap: normal;
   /* 2 */
 }
+.page-landing {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  background-image: linear-gradient(45deg, #4fa49a, #4361c2);
+}
 .page-landing__title {
   text-align: center;
+}
+.page-landing__title h1 {
+  color: #fff;
+  font-size: 42px;
+}
+.page-landing__title h2 {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 18px;
 }
 .page-landing__features {
   display: -webkit-flex;
@@ -3911,16 +3936,55 @@ textarea.FormInput {
   padding: 50px;
 }
 .page-landing__feature {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   width: 33.33333333%;
+  margin: 15px;
+}
+.page-landing__feature a,
+.page-landing__feature a:hover {
+  text-decoration: none;
 }
 .page-landing__feature-icon {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  min-width: 100px;
+  min-height: 100px;
+  margin: 15px;
+  border: solid 1px rgba(255, 255, 255, 0.5);
+  border-radius: 4px;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
   text-align: center;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+.page-landing__feature-icon:hover {
+  background-color: rgba(255, 255, 255, 0.125);
 }
 .page-landing__feature-icon .octicon {
+  color: #fff;
   font-size: 42px;
 }
 .page-landing__feature-description {
   padding: 10px;
+  color: #fff;
   text-align: center;
 }
 .page-landing__cta {
@@ -3928,17 +3992,25 @@ textarea.FormInput {
 }
 .page-landing__login-button {
   padding: 10px 40px;
+  border: 1px solid #ffffff;
   border-radius: 4px;
-  background: #42aaff;
+  background: transparent;
   color: #ffffff;
-  font-size: 42px;
+  font-size: 16px;
+  text-transform: uppercase;
+  box-shadow: inset 0 0 0 1px #ffffff;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  text-decoration: none;
 }
-.page-landing__login-button,
-.page-landing__login-button:hover,
-.page-landing__login-button:link,
-.page-landing__login-button:active {
+.page-landing__login-button:hover {
+  background-color: rgba(255, 255, 255, 0.125);
   color: #ffffff;
   text-decoration: none;
+}
+.page-repositories {
+  max-width: 1200px;
+  margin: auto;
+  padding-top: 50px;
 }
 .page-repositories__paginator {
   display: -webkit-flex;
@@ -3947,6 +4019,11 @@ textarea.FormInput {
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
+}
+.page-repository {
+  max-width: 1200px;
+  margin: auto;
+  padding-top: 50px;
 }
 .page-repository__body {
   display: -webkit-flex;
@@ -3986,6 +4063,11 @@ textarea.FormInput {
   color: #000011;
   font-size: 42px;
 }
+.page-tag {
+  max-width: 1200px;
+  margin: auto;
+  padding-top: 50px;
+}
 .page-tag__paginator {
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -4001,6 +4083,9 @@ textarea.FormInput {
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
+  max-width: 1200px;
+  margin: auto;
+  padding-top: 50px;
 }
 .page-search__search-field__input {
   width: 100%;
@@ -4139,8 +4224,11 @@ textarea.FormInput {
 * {
   box-sizing: border-box;
 }
+html {
+  height: 100%;
+}
 body {
-  padding-top: 50px;
+  height: 100%;
   font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 a {
@@ -4151,8 +4239,7 @@ a:hover {
   text-decoration: underline;
 }
 #app {
-  max-width: 1200px;
-  margin: auto;
+  height: 100%;
 }
 
 /*# sourceMappingURL=app.css.map */
