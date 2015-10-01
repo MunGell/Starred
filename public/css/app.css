@@ -3916,12 +3916,14 @@ textarea.FormInput {
   align-items: center;
   height: 100%;
   width: 100%;
+  overflow: hidden;
   background-image: linear-gradient(45deg, #4fa49a, #4361c2);
 }
 .page-landing__title {
   text-align: center;
 }
 .page-landing__title h1 {
+  margin: 0 0 10px 0;
   color: #fff;
   font-size: 42px;
 }
@@ -3933,7 +3935,12 @@ textarea.FormInput {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  padding: 50px;
+  -webkit-justify-content: space-around;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  width: 80%;
+  max-width: 600px;
+  margin: 25px 0;
 }
 .page-landing__feature {
   display: -webkit-flex;
@@ -3949,7 +3956,7 @@ textarea.FormInput {
   -ms-flex-align: center;
   align-items: center;
   width: 33.33333333%;
-  margin: 15px;
+  margin: 0 15px;
 }
 .page-landing__feature a,
 .page-landing__feature a:hover {
@@ -3965,9 +3972,8 @@ textarea.FormInput {
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
-  min-width: 100px;
-  min-height: 100px;
-  margin: 15px;
+  min-width: 80px;
+  min-height: 80px;
   border: solid 1px rgba(255, 255, 255, 0.5);
   border-radius: 4px;
   -webkit-transform: rotate(45deg);
@@ -3984,6 +3990,7 @@ textarea.FormInput {
 }
 .page-landing__feature-description {
   padding: 10px;
+  margin: 10px 0 0 0;
   color: #fff;
   text-align: center;
 }
@@ -4220,9 +4227,6 @@ textarea.FormInput {
   background-color: rgba(0, 0, 0, 0.05);
   border-color: rgba(0, 0, 0, 0.05);
   outline: none;
-}
-* {
-  box-sizing: border-box;
 }
 html {
   height: 100%;
