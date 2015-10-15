@@ -23,11 +23,11 @@ export default React.createClass({
 
     _callApi: function (page) {
         page = page || this.props.data.page;
-        Api.search(this.refs.searchField.getDOMNode().value, page, this._setData);
+        Api.search(this.refs.searchField.value, page, this._setData);
     },
 
     _onSearchChange: function () {
-        var keyword = this.refs.searchField.getDOMNode().value;
+        var keyword = this.refs.searchField.value;
         if (keyword.length > 1) {
             this._callApi();
         }

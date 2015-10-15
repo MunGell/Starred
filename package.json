@@ -5,10 +5,14 @@
     "laravel-elixir": "^2.0.0"
   },
   "dependencies": {
-    "elemental": "^0.4.7",
+    "autoprefixer": "^6.0.3",
+    "elemental": "^0.5.0",
     "jquery": "^2.1.4",
     "lodash": "^3.9.3",
-    "react": "^0.13.3",
-    "route-pattern": "0.0.6"
+    "postcss-nested": "^1.0.0",
+    "react": "^0.14.0",
+    "react-dom": "^0.14.0",
+    "react-postcss": "^0.1.0",
+    "route-pattern": "^0.0.6"
   }
 }
