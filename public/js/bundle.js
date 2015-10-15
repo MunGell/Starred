@@ -54819,17 +54819,19 @@ exports['default'] = _react2['default'].createClass({
         if (this.props.disabled !== 'prev') {
             buttons.push(_react2['default'].createElement(
                 'button',
-                { className: 'component-pager__button', onClick: this.props.onClickPrev },
-                _react2['default'].createElement(_elementalLibComponentsGlyph2['default'], { icon: 'chevron-left' }),
+                { className: 'component-pager__button', onClick: this.props.onClickPrev, key: 'pager_prev' },
+                _react2['default'].createElement(_elementalLibComponentsGlyph2['default'], {
+                    icon: 'chevron-left' }),
                 ' Previous'
             ));
         }
         if (this.props.disabled !== 'next') {
             buttons.push(_react2['default'].createElement(
                 'button',
-                { className: 'component-pager__button', onClick: this.props.onClickNext },
+                { className: 'component-pager__button', onClick: this.props.onClickNext, key: 'pager_next' },
                 'Next ',
-                _react2['default'].createElement(_elementalLibComponentsGlyph2['default'], { icon: 'chevron-right' })
+                _react2['default'].createElement(_elementalLibComponentsGlyph2['default'], {
+                    icon: 'chevron-right' })
             ));
         }
         return buttons;

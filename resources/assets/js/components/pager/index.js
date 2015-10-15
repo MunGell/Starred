@@ -7,16 +7,18 @@ export default React.createClass({
 
     _renderButtons: function () {
         let buttons = [];
-            if (this.props.disabled !== 'prev') {
-                buttons.push(<button className="component-pager__button" onClick={this.props.onClickPrev}><Glyph icon="chevron-left"/> Previous</button>);
-            }
-            if (this.props.disabled !== 'next') {
-                buttons.push(<button className="component-pager__button" onClick={this.props.onClickNext}>Next <Glyph icon="chevron-right"/></button>);
-            }
+        if (this.props.disabled !== 'prev') {
+            buttons.push(<button className="component-pager__button" onClick={this.props.onClickPrev} key="pager_prev"><Glyph
+                icon="chevron-left"/> Previous</button>);
+        }
+        if (this.props.disabled !== 'next') {
+            buttons.push(<button className="component-pager__button" onClick={this.props.onClickNext} key="pager_next">Next <Glyph
+                icon="chevron-right"/></button>);
+        }
         return buttons;
     },
 
-    style: function() {
+    style: function () {
         return `
             .component-pager {
                 &__button {
