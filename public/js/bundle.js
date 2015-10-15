@@ -54799,19 +54799,20 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
+var _reactPostcss = require('react-postcss');
+
+var _reactPostcss2 = _interopRequireDefault(_reactPostcss);
+
 var _elementalLibComponentsGlyph = require('elemental/lib/components/Glyph');
 
 var _elementalLibComponentsGlyph2 = _interopRequireDefault(_elementalLibComponentsGlyph);
 
+var _postcssPlugins = require('../../postcss-plugins');
+
+var _postcssPlugins2 = _interopRequireDefault(_postcssPlugins);
+
 exports['default'] = _react2['default'].createClass({
     displayName: 'index',
-
-    getDefaultProps: function getDefaultProps() {
-        return {
-            //onClickNext: null,
-            //onClickPrev: null
-        };
-    },
 
     _renderButtons: function _renderButtons() {
         var buttons = [];
@@ -54834,96 +54835,130 @@ exports['default'] = _react2['default'].createClass({
         return buttons;
     },
 
+    style: function style() {
+        return '\n            .component-pager {\n                &__button {\n                    background: none;\n                    border: 1px solid rgba(0, 0, 0, 0.1);\n                    border-radius: 3px;\n                    color: #666;\n                    cursor: pointer;\n                    padding: 5px 10px;\n\n                    &:first-child {\n                        margin-right: 5px;\n                    }\n\n                    &:last-child {\n                        margin-left: 5px;\n                    }\n\n                    &:hover,\n                    &:focus {\n                        background-color: rgba(0, 0, 0, 0.05);\n                        border-color: rgba(0, 0, 0, 0.05);\n                        outline: none;\n                    }\n                }\n            }\n        ';
+    },
+
     render: function render() {
         return _react2['default'].createElement(
             'div',
             { className: 'component-pager' },
+            _react2['default'].createElement(
+                _reactPostcss2['default'],
+                { plugins: _postcssPlugins2['default'] },
+                this.style()
+            ),
             this._renderButtons()
         );
     }
 });
 module.exports = exports['default'];
 
-},{"elemental/lib/components/Glyph":109,"react":304}],319:[function(require,module,exports){
-"use strict";
+},{"../../postcss-plugins":331,"elemental/lib/components/Glyph":109,"react":304,"react-postcss":176}],319:[function(require,module,exports){
+'use strict';
 
-Object.defineProperty(exports, "__esModule", {
+Object.defineProperty(exports, '__esModule', {
     value: true
 });
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-exports["default"] = _react2["default"].createClass({
-    displayName: "header",
+var _reactPostcss = require('react-postcss');
+
+var _reactPostcss2 = _interopRequireDefault(_reactPostcss);
+
+var _postcssPlugins = require('../../postcss-plugins');
+
+var _postcssPlugins2 = _interopRequireDefault(_postcssPlugins);
+
+exports['default'] = _react2['default'].createClass({
+    displayName: 'header',
+
+    style: function style() {
+        return '\n            .component-header {\n                display: flex;\n                flex-direction: row;\n                align-items: baseline;\n                margin-bottom: 20px;\n\n                &__logo {\n                    margin-right: 20px;\n\n                    &__link {\n                        color: #000;\n                        font-weight: bold;\n                        font-size: 18px;\n\n                        &:hover,\n                        &:active,\n                        &visited {\n                            color: inherit;\n                            text-decoration: none;\n                        }\n                    }\n                }\n\n                &__menu {\n                    display: flex;\n                    flex-direction: row;\n                    margin: 0;\n                    padding: 0;\n                    list-style: none;\n\n                    &__item {\n                        margin-right: 20px;\n\n                        &__link {\n\n                        }\n                    }\n                }\n            }\n        ';
+    },
 
     render: function render() {
-        return _react2["default"].createElement(
-            "div",
-            { className: "component-header" },
-            _react2["default"].createElement(
-                "div",
-                { className: "component-header__logo" },
-                _react2["default"].createElement(
-                    "a",
-                    { className: "component-header__logo__link", href: "/#/repositories" },
-                    "Starred By Me"
+        return _react2['default'].createElement(
+            'div',
+            { className: 'component-header' },
+            _react2['default'].createElement(
+                _reactPostcss2['default'],
+                { plugins: _postcssPlugins2['default'] },
+                this.style()
+            ),
+            _react2['default'].createElement(
+                'div',
+                { className: 'component-header__logo' },
+                _react2['default'].createElement(
+                    'a',
+                    { className: 'component-header__logo__link', href: '/#/repositories' },
+                    'Starred By Me'
                 )
             ),
-            _react2["default"].createElement(
-                "ul",
-                { className: "component-header__menu" },
-                _react2["default"].createElement(
-                    "li",
-                    { className: "component-header__menu__item" },
-                    _react2["default"].createElement(
-                        "a",
-                        { className: "component-header__menu__item__link", href: "/#/search" },
-                        "Search"
+            _react2['default'].createElement(
+                'ul',
+                { className: 'component-header__menu' },
+                _react2['default'].createElement(
+                    'li',
+                    { className: 'component-header__menu__item' },
+                    _react2['default'].createElement(
+                        'a',
+                        { className: 'component-header__menu__item__link', href: '/#/search' },
+                        'Search'
                     )
                 ),
-                _react2["default"].createElement(
-                    "li",
-                    { className: "component-header__menu__item" },
-                    _react2["default"].createElement(
-                        "a",
-                        { className: "component-header__menu__item__link", href: "/#/repositories" },
-                        "Repositories"
+                _react2['default'].createElement(
+                    'li',
+                    { className: 'component-header__menu__item' },
+                    _react2['default'].createElement(
+                        'a',
+                        { className: 'component-header__menu__item__link', href: '/#/repositories' },
+                        'Repositories'
                     )
                 ),
-                _react2["default"].createElement(
-                    "li",
-                    { className: "component-header__menu__item" },
-                    _react2["default"].createElement(
-                        "a",
-                        { className: "component-header__menu__item__link", href: "/sync" },
-                        "Sync"
+                _react2['default'].createElement(
+                    'li',
+                    { className: 'component-header__menu__item' },
+                    _react2['default'].createElement(
+                        'a',
+                        { className: 'component-header__menu__item__link', href: '/sync' },
+                        'Sync'
                     )
                 )
             )
         );
     }
 });
-module.exports = exports["default"];
+module.exports = exports['default'];
 
-},{"react":304}],320:[function(require,module,exports){
-"use strict";
+},{"../../postcss-plugins":331,"react":304,"react-postcss":176}],320:[function(require,module,exports){
+'use strict';
 
-Object.defineProperty(exports, "__esModule", {
+Object.defineProperty(exports, '__esModule', {
     value: true
 });
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-exports["default"] = _react2["default"].createClass({
-    displayName: "index",
+var _reactPostcss = require('react-postcss');
+
+var _reactPostcss2 = _interopRequireDefault(_reactPostcss);
+
+var _postcssPlugins = require('../../postcss-plugins');
+
+var _postcssPlugins2 = _interopRequireDefault(_postcssPlugins);
+
+exports['default'] = _react2['default'].createClass({
+    displayName: 'index',
 
     getDefaultProps: function getDefaultProps() {
         return {
@@ -54931,25 +54966,34 @@ exports["default"] = _react2["default"].createClass({
         };
     },
 
+    style: function style() {
+        return '\n            .component-repository-list {\n                &__list {\n                    padding: 0;\n                    list-style: none;\n\n                    &__item {\n                        margin-bottom: 10px;\n                        padding: 10px;\n                        border: 1px solid #f1f1f1;\n                        border-radius: 4px;\n                        background: #f5f5f5;\n\n                        &__link {\n\n                        }\n\n                        &__description {\n                            margin: 0;\n                        }\n                    }\n                }\n            }\n        ';
+    },
+
     render: function render() {
-        return _react2["default"].createElement(
-            "div",
-            { className: "component-repository-list" },
-            _react2["default"].createElement(
-                "ul",
-                { className: "component-repository-list__list" },
+        return _react2['default'].createElement(
+            'div',
+            { className: 'component-repository-list' },
+            _react2['default'].createElement(
+                _reactPostcss2['default'],
+                { plugins: _postcssPlugins2['default'] },
+                this.style()
+            ),
+            _react2['default'].createElement(
+                'ul',
+                { className: 'component-repository-list__list' },
                 this.props.data.map((function (value) {
-                    return _react2["default"].createElement(
-                        "li",
-                        { className: "component-repository-list__list__item", key: value.id },
-                        _react2["default"].createElement(
-                            "a",
-                            { className: "component-repository-list__list__item__link", href: '#' + this.props.root + value.id },
+                    return _react2['default'].createElement(
+                        'li',
+                        { className: 'component-repository-list__list__item', key: value.id },
+                        _react2['default'].createElement(
+                            'a',
+                            { className: 'component-repository-list__list__item__link', href: '#' + this.props.root + value.id },
                             value.full_name
                         ),
-                        _react2["default"].createElement(
-                            "p",
-                            { className: "component-repository-list__list__item__description" },
+                        _react2['default'].createElement(
+                            'p',
+                            { className: 'component-repository-list__list__item__description' },
                             value.description
                         )
                     );
@@ -54958,23 +55002,31 @@ exports["default"] = _react2["default"].createClass({
         );
     }
 });
-module.exports = exports["default"];
+module.exports = exports['default'];
 
-},{"react":304}],321:[function(require,module,exports){
-"use strict";
+},{"../../postcss-plugins":331,"react":304,"react-postcss":176}],321:[function(require,module,exports){
+'use strict';
 
-Object.defineProperty(exports, "__esModule", {
+Object.defineProperty(exports, '__esModule', {
     value: true
 });
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-exports["default"] = _react2["default"].createClass({
-    displayName: "index",
+var _reactPostcss = require('react-postcss');
+
+var _reactPostcss2 = _interopRequireDefault(_reactPostcss);
+
+var _postcssPlugins = require('../../postcss-plugins');
+
+var _postcssPlugins2 = _interopRequireDefault(_postcssPlugins);
+
+exports['default'] = _react2['default'].createClass({
+    displayName: 'index',
 
     getDefaultProps: function getDefaultProps() {
         return {
@@ -54982,19 +55034,28 @@ exports["default"] = _react2["default"].createClass({
         };
     },
 
+    style: function style() {
+        return '\n        .component-tag-list {\n            &__list {\n                padding: 0;\n                list-style: none;\n\n                &__item {\n                    margin-bottom: 10px;\n                    padding: 10px;\n                    border: 1px solid #f1f1f1;\n                    border-radius: 4px;\n                    background: #f5f5f5;\n                }\n            }\n        }\n        ';
+    },
+
     render: function render() {
-        return _react2["default"].createElement(
-            "div",
-            { className: "component-tag-list" },
-            _react2["default"].createElement(
-                "ul",
-                { className: "component-tag-list__list" },
+        return _react2['default'].createElement(
+            'div',
+            { className: 'component-tag-list' },
+            _react2['default'].createElement(
+                _reactPostcss2['default'],
+                { plugins: _postcssPlugins2['default'] },
+                this.style()
+            ),
+            _react2['default'].createElement(
+                'ul',
+                { className: 'component-tag-list__list' },
                 this.props.data.map((function (value) {
-                    return _react2["default"].createElement(
-                        "li",
-                        { className: "component-tag-list__list__item", key: value.id },
-                        _react2["default"].createElement(
-                            "a",
+                    return _react2['default'].createElement(
+                        'li',
+                        { className: 'component-tag-list__list__item', key: value.id },
+                        _react2['default'].createElement(
+                            'a',
                             { href: '#' + this.props.root + value.id },
                             value.title
                         )
@@ -55004,9 +55065,9 @@ exports["default"] = _react2["default"].createClass({
         );
     }
 });
-module.exports = exports["default"];
+module.exports = exports['default'];
 
-},{"react":304}],322:[function(require,module,exports){
+},{"../../postcss-plugins":331,"react":304,"react-postcss":176}],322:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -55055,6 +55116,14 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
+var _reactPostcss = require('react-postcss');
+
+var _reactPostcss2 = _interopRequireDefault(_reactPostcss);
+
+var _postcssPlugins = require('../../postcss-plugins');
+
+var _postcssPlugins2 = _interopRequireDefault(_postcssPlugins);
+
 var _form = require('./form');
 
 var _form2 = _interopRequireDefault(_form);
@@ -55075,10 +55144,19 @@ exports['default'] = _react2['default'].createClass({
         };
     },
 
+    style: function style() {
+        return '\n            .component-tag-manager {\n                &__input {\n                    width: 100%;\n                    padding: 5px;\n                }\n\n                &__list {\n                    padding: 0;\n                    margin: 10px 0 0 0;\n                }\n\n                .Pill {\n                    &__label {\n                        margin-right: 0;\n                    }\n                    &__clear {\n                        margin-left: 0;\n                        border-left: 1px solid #585858;\n                    }\n                }\n            }\n        ';
+    },
+
     render: function render() {
         return _react2['default'].createElement(
             'div',
             { className: 'component-tag-manager' },
+            _react2['default'].createElement(
+                _reactPostcss2['default'],
+                { plugins: _postcssPlugins2['default'] },
+                this.style()
+            ),
             _react2['default'].createElement(_form2['default'], { onTagAdd: this.props.onTagAdd }),
             _react2['default'].createElement(_tagList2['default'], { tags: this.props.tags, onTagClick: this.props.onTagClick, onTagClear: this.props.onTagClear })
         );
@@ -55086,7 +55164,7 @@ exports['default'] = _react2['default'].createClass({
 });
 module.exports = exports['default'];
 
-},{"./form":322,"./tag-list":324,"react":304}],324:[function(require,module,exports){
+},{"../../postcss-plugins":331,"./form":322,"./tag-list":324,"react":304,"react-postcss":176}],324:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
