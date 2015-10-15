@@ -1,5 +1,8 @@
 import React from 'react'
 import Api from '../utils/api'
+import Style from 'react-postcss'
+
+import postcssPlugins from '../postcss-plugins'
 
 import Header from '../components/partials/header'
 import RepositoryList from '../components/repository-list'
@@ -49,9 +52,27 @@ export default React.createClass({
         this._getApiData(page);
     },
 
+    style: function() {
+        return `
+            .page-repositories {
+                max-width: 1200px;
+                margin: auto;
+                padding-top: 50px;
+
+                &__paginator {
+                    display: flex;
+                    justify-content: center;
+                }
+            }
+        `
+    },
+
     render: function () {
         return (
             <div className="page-repositories">
+                <Style plugins={postcssPlugins}>
+                    {this.style()}
+                </Style>
                 <Header />
                 <RepositoryList data={this.state.data} root='/repositories/'/>
 
