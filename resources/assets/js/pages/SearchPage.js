@@ -1,5 +1,8 @@
 import React from 'react'
 import Api from '../utils/api'
+import Style from 'react-postcss'
+
+import postcssPlugins from '../postcss-plugins'
 
 import Header from '../components/partials/header'
 import RepositoryList from '../components/repository-list'
@@ -23,11 +26,11 @@ export default React.createClass({
 
     _callApi: function (page) {
         page = page || this.props.data.page;
-        Api.search(this.refs.searchField.getDOMNode().value, page, this._setData);
+        Api.search(this.refs.searchField.value, page, this._setData);
     },
 
     _onSearchChange: function () {
-        var keyword = this.refs.searchField.getDOMNode().value;
+        var keyword = this.refs.searchField.value;
         if (keyword.length > 1) {
             this._callApi();
         }
@@ -63,10 +66,58 @@ export default React.createClass({
                       disabled={pagerDisabled}/>;
     },
 
+    style: function() {
+        return `
+            .page-search {
+                display: flex;
+                flex-direction: column;
+                max-width: 1200px;
+                margin: auto;
+                padding-top: 50px;
+
+                &__search-field {
+                    &__input {
+                        width: 100%;
+                        padding: 5px;
+                        font-size: 20px;
+                    }
+                }
+
+                &__results {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    padding-top: 10px;
+
+                    &__repositories {
+                        width: 70%;
+                        padding-right: 10px;
+                        border-right: 1px solid #eee;
+                    }
+
+                    &__tags {
+                        width: 30%;
+                        padding-left: 10px;
+                    }
+
+                }
+
+                &__paginator {
+                    display: flex;
+                    justify-content: center;
+                }
+
+            }
+        `
+    },
+
     render: function () {
 
         return (
             <div className="page-search">
+                <Style plugins={postcssPlugins}>
+                    {this.style()}
+                </Style>
                 <Header />
                 <div className="page-search__search-field">
                     <input className="page-search__search-field__input" type="text" placeholder="Search"

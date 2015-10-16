@@ -1,7 +1,9 @@
 import React from 'react'
 import Api from '../utils/api'
-
+import Style from 'react-postcss'
 import Glyph from 'elemental/lib/components/Glyph'
+
+import postcssPlugins from '../postcss-plugins'
 
 import Header from '../components/partials/header'
 import TagManager from '../components/tag-manager'
@@ -58,9 +60,61 @@ export default React.createClass({
         window.location.hash = '/tags/' + id;
     },
 
+    style: function() {
+        return `
+            .page-repository {
+                max-width: 1200px;
+                margin: auto;
+                padding-top: 50px;
+
+                &__body {
+                    display: flex;
+                    flex-direction: row;
+                }
+
+                &__content {
+                    width: 75%
+                }
+
+                &__title {
+                    display: flex;
+                    flex-direction: row;
+
+                    margin: 0 0 10px 0;
+
+                    h1 {
+                        margin: 0;
+                    }
+                }
+
+                &__tags {
+                    width: 25%;
+                    padding: 10px;
+                    border: 1px solid #f1f1f1;
+                    border-radius: 4px;
+                    background: #f5f5f5;
+                }
+
+                &__github-link {
+                    margin-right: 10px;
+                    line-height: 42px;
+
+                    .octicon {
+                        color: #000011;
+                        font-size: 42px;
+                    }
+                }
+
+            }
+        `
+    },
+
     render: function () {
         return (
             <div className="page-repository">
+                <Style plugins={postcssPlugins}>
+                    {this.style()}
+                </Style>
                 <Header />
                 <div className="page-repository__body">
                     <div className="page-repository__content">

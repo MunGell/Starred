@@ -1,4 +1,6 @@
 import React from 'react'
+import Style from 'react-postcss'
+import postcssPlugins from '../../postcss-plugins'
 
 export default React.createClass({
 
@@ -8,9 +10,39 @@ export default React.createClass({
         }
     },
 
+    style: function() {
+        return `
+            .component-repository-list {
+                &__list {
+                    padding: 0;
+                    list-style: none;
+
+                    &__item {
+                        margin-bottom: 10px;
+                        padding: 10px;
+                        border: 1px solid #f1f1f1;
+                        border-radius: 4px;
+                        background: #f5f5f5;
+
+                        &__link {
+
+                        }
+
+                        &__description {
+                            margin: 0;
+                        }
+                    }
+                }
+            }
+        `
+    },
+
     render: function () {
         return (
             <div className="component-repository-list">
+                <Style plugins={postcssPlugins}>
+                    {this.style()}
+                </Style>
                 <ul className="component-repository-list__list">
                 {this.props.data.map(function (value) {
                     return (

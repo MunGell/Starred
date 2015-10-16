@@ -1,5 +1,6 @@
 import $ from 'jquery'
 import React from 'react'
+import ReactDOM from 'react-dom'
 import RoutePattern from 'route-pattern'
 
 import LandingPage from './pages/LandingPage'
@@ -68,7 +69,7 @@ var App = React.createClass({
     }
 });
 
-React.render(
+ReactDOM.render(
     <App />,
     $('#app').get(0)
 );
