@@ -33,12 +33,6 @@ class Tag extends Model
      */
     protected $hidden = [];
 
-    public function users()
-    {
-        // @todo: remove this line of code
-//        return $this->belongsToMany('App\User');
-    }
-
     public function repositories()
     {
         return $this->belongsToMany('App\Repository');
