@@ -23,4 +23,12 @@ class SyncController extends Controller
         return redirect('/#/repositories');
     }
 
+    public function checkQueue()
+    {
+        $user = \Auth::user();
+        return [
+            'queue' => count($user->jobs())
+        ];
+    }
+
 }
