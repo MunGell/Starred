@@ -76,7 +76,7 @@ export default React.createClass({
                 <Header />
                 <RepositoryList data={this.state.data} root='/repositories/'/>
 
-                <div className="page-search__paginator">
+                <div className="page-repositories__paginator">
                     <Pagination currentPage={this.state.current_page}
                                 onPageSelect={this._onPageChange}
                                 pageSize={this.state.per_page}
@@ -87,5 +87,4 @@ export default React.createClass({
             </div>
         )
     }
-
 });
