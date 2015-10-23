@@ -38,6 +38,10 @@ Api.prototype.search = function(keyword, page, callback) {
     this.get('/search/' + encodeURIComponent(keyword) + '?page=' + page, callback)
 };
 
+Api.prototype.checkQueue = function(callback) {
+    this.get('/sync/queue', callback);
+};
+
 Api.prototype._onError = function(response) {
     if (response.status === 401) {
         // @todo: add return url in here
