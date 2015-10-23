@@ -31,3 +31,4 @@ Route::group(['prefix' => 'tags'], function () {
 
 Route::get('search/{keyword?}', 'SearchController@index');
 Route::get('sync', 'SyncController@index');
+Route::get('sync/queue', 'SyncController@checkQueue');

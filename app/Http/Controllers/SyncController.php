@@ -14,10 +14,21 @@ class SyncController extends Controller
     public function index()
     {
         $user = \Auth::user();
-        $job = new SyncRepos($user);
-        $this->dispatch($job);
+
+        if (count($user->jobs()) === 0) {
+            $job = new SyncRepos($user);
+            $user->attachJob($this->dispatch($job));
+        }
 
         return redirect('/#/repositories');
+    }
+
+    public function checkQueue()
+    {
+        $user = \Auth::user();
+        return [
+            'queue' => count($user->jobs())
+        ];
     }
 
 }

@@ -75,5 +75,6 @@ class SyncRepos extends Job implements SelfHandling, ShouldQueue
         }
 
         $this->user->repositories()->sync($repo_ids);
+        $this->user->detachJob($this->job->getJobId());
     }
 }

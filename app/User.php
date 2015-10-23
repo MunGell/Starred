@@ -50,6 +50,30 @@ class User extends Model implements AuthenticatableContract
         return $this->belongsToMany('App\Repository');
     }
 
+    public function jobs()
+    {
+        return DB::table('user_job')
+            ->where('user_job.user_id', '=', $this->id)
+            ->join('jobs', 'user_job.job_id', '=', 'jobs.id')
+            ->select('jobs.id')->get();
+    }
+
+    public function attachJob($jobId)
+    {
+        return DB::table('user_job')
+            ->insert([
+                'user_id' => $this->id,
+                'job_id' => $jobId
+            ]);
+    }
+
+    public function detachJob($jobId)
+    {
+        return DB::table('user_job')
+            ->where('job_id', '=', $jobId)
+            ->delete();
+    }
+
     public function searchTags($keyword, $currentPage = 0)
     {
         return $this->buildTagQuery()
