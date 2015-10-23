@@ -12,6 +12,7 @@
     "postcss-nested": "^1.0.0",
     "react": "^0.14.0",
     "react-dom": "^0.14.0",
+    "react-interval": "^1.2.1",
     "react-postcss": "^0.1.0",
     "route-pattern": "^0.0.6"
   }
