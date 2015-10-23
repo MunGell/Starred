@@ -8,9 +8,8 @@ export default React.createClass({
 
     getInitialState: function () {
         return {
-            syncFinished: true,
             checkQueue: {
-                enabled: true,
+                enabled: false,
                 timeout: 5000
             }
         }
@@ -38,6 +37,9 @@ export default React.createClass({
     },
 
     render: function () {
+        // Do initial queue check
+        this._checkQueue();
+
         return (
             <div className="component-header">
                 <Style plugins={postcssPlugins}>

@@ -55060,9 +55060,8 @@ exports['default'] = _react2['default'].createClass({
 
     getInitialState: function getInitialState() {
         return {
-            syncFinished: true,
             checkQueue: {
-                enabled: true,
+                enabled: false,
                 timeout: 5000
             }
         };
@@ -55094,6 +55093,9 @@ exports['default'] = _react2['default'].createClass({
     },
 
     render: function render() {
+        // Do initial queue check
+        this._checkQueue();
+
         return _react2['default'].createElement(
             'div',
             { className: 'component-header' },
