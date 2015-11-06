@@ -55093,8 +55093,6 @@ exports['default'] = _react2['default'].createClass({
     },
 
     render: function render() {
-        // Do initial queue check
-        this._checkQueue();
 
         return _react2['default'].createElement(
             'div',

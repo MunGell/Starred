@@ -37,8 +37,6 @@ export default React.createClass({
     },
 
     render: function () {
-        // Do initial queue check
-        this._checkQueue();
 
         return (
             <div className="component-header">
