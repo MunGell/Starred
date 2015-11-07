@@ -55067,6 +55067,11 @@ exports['default'] = _react2['default'].createClass({
         };
     },
 
+    componentDidMount: function componentDidMount() {
+        // Do initial queue check
+        this._checkQueue();
+    },
+
     _checkQueue: function _checkQueue() {
         var _this = this;
 
@@ -55093,7 +55098,6 @@ exports['default'] = _react2['default'].createClass({
     },
 
     render: function render() {
-
         return _react2['default'].createElement(
             'div',
             { className: 'component-header' },

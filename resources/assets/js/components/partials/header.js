@@ -15,6 +15,11 @@ export default React.createClass({
         }
     },
 
+    componentDidMount: function() {
+        // Do initial queue check
+        this._checkQueue();
+    },
+
     _checkQueue: function() {
         Api.checkQueue((response) => {
             this.setState({
@@ -37,7 +42,6 @@ export default React.createClass({
     },
 
     render: function () {
-
         return (
             <div className="component-header">
                 <Style plugins={postcssPlugins}>
