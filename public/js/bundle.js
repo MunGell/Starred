@@ -55569,7 +55569,7 @@ exports['default'] = _react2['default'].createClass({
                     _react2['default'].createElement(
                         'p',
                         { className: 'page-landing__feature-description' },
-                        'Find repositories by name, author, description or&nbps;tag'
+                        'Find repositories by name, author, description or tag'
                     )
                 )
             ),

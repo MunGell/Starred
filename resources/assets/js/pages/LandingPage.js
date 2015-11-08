@@ -44,7 +44,7 @@ export default React.createClass({
                             </h3>
                         </a>
                         <p className="page-landing__feature-description">
-                            Find repositories by name, author, description or&nbps;tag
+                            Find repositories by name, author, description or&nbsp;tag
                         </p>
                     </div>
                 </div>
