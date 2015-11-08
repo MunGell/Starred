@@ -55489,10 +55489,6 @@ var _postcssPlugins2 = _interopRequireDefault(_postcssPlugins);
 exports['default'] = _react2['default'].createClass({
     displayName: 'LandingPage',
 
-    style: function style() {
-        return '\n            .page-landing {\n                display: flex;\n                flex-direction: column;\n                justify-content: center;\n                align-items: center;\n                height: 100%;\n                width: 100%;\n                overflow: hidden;\n                background-image: linear-gradient(45deg, #4fa49a, #4361c2);\n\n                &__title {\n                    text-align: center;\n\n                    h1 {\n                        margin: 0 0 10px 0;\n                        color: #fff;\n                        font-size: 42px;\n                    }\n\n                    h2 {\n                        color: rgba(255, 255, 255, 0.75);\n                        font-size: 18px;\n                    }\n                }\n\n                &__features {\n                    display: flex;\n                    justify-content: space-around;\n                    width: 80%;\n                    max-width: 600px;\n                    margin: 25px 0;\n                }\n\n                &__feature {\n                    display: flex;\n                    flex-direction: column;\n                    justify-content: center;\n                    align-items: center;\n                    width: 100% / 3;\n                    margin: 0 15px;\n\n                    a, a:hover {\n                        text-decoration: none;\n                    }\n                }\n\n                &__feature-icon {\n                    display: flex;\n                    justify-content: center;\n                    align-items: center;\n                    min-width: 80px;\n                    min-height: 80px;\n                    border: solid 1px rgba(255, 255, 255, 0.5);\n                    border-radius: 4px;\n                    transform: rotate(45deg);\n                    text-align: center;\n                    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;\n\n                    &:hover {\n                        background-color: rgba(255, 255, 255, 0.125);\n                    }\n\n                    .octicon {\n                        color: #fff;\n                        font-size: 42px;\n                    }\n                }\n\n                &__feature-description {\n                    padding: 10px;\n                    margin: 10px 0 0 0;\n                    color: #fff;\n                    text-align: center;\n                }\n\n                &__cta {\n                    text-align: center;\n                }\n\n                &__login-button {\n                    padding: 10px 40px;\n                    border: 1px solid #ffffff;\n                    border-radius: 4px;\n                    background: transparent;\n                    color: #ffffff;\n                    font-size: 16px;\n                    text-transform: uppercase;\n                    box-shadow: inset 0 0 0 1px #ffffff;\n                    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;\n                    text-decoration: none;\n\n                    &:hover {\n                        background-color: rgba(255, 255, 255, 0.125);\n                        color: #ffffff;\n                        text-decoration: none;\n                    }\n                }\n\n            }\n        ';
-    },
-
     render: function render() {
         return _react2['default'].createElement(
             'div',
@@ -55526,15 +55522,16 @@ exports['default'] = _react2['default'].createClass({
                         'a',
                         { href: '/sync' },
                         _react2['default'].createElement(
-                            'div',
-                            { className: 'page-landing__feature-icon' },
-                            _react2['default'].createElement(_elementalLibComponentsGlyph2['default'], { icon: 'repo-sync' })
+                            'h3',
+                            { className: 'page-landing__feature-title' },
+                            _react2['default'].createElement(_elementalLibComponentsGlyph2['default'], { icon: 'repo-sync' }),
+                            ' Sync'
                         )
                     ),
                     _react2['default'].createElement(
-                        'h3',
+                        'p',
                         { className: 'page-landing__feature-description' },
-                        'Sync'
+                        'Synchronise stars from your account on GitHub'
                     )
                 ),
                 _react2['default'].createElement(
@@ -55544,15 +55541,16 @@ exports['default'] = _react2['default'].createClass({
                         'a',
                         { href: '/#/repositories' },
                         _react2['default'].createElement(
-                            'div',
-                            { className: 'page-landing__feature-icon' },
-                            _react2['default'].createElement(_elementalLibComponentsGlyph2['default'], { icon: 'tag' })
+                            'h3',
+                            { className: 'page-landing__feature-title' },
+                            _react2['default'].createElement(_elementalLibComponentsGlyph2['default'], { icon: 'tag' }),
+                            ' Tag'
                         )
                     ),
                     _react2['default'].createElement(
-                        'h3',
+                        'p',
                         { className: 'page-landing__feature-description' },
-                        'Tag'
+                        'Categorise repositories using tags'
                     )
                 ),
                 _react2['default'].createElement(
@@ -55562,15 +55560,16 @@ exports['default'] = _react2['default'].createClass({
                         'a',
                         { href: '/#/search' },
                         _react2['default'].createElement(
-                            'div',
-                            { className: 'page-landing__feature-icon' },
-                            _react2['default'].createElement(_elementalLibComponentsGlyph2['default'], { icon: 'search' })
+                            'h3',
+                            { className: 'page-landing__feature-title' },
+                            _react2['default'].createElement(_elementalLibComponentsGlyph2['default'], { icon: 'search' }),
+                            ' Search'
                         )
                     ),
                     _react2['default'].createElement(
-                        'h3',
+                        'p',
                         { className: 'page-landing__feature-description' },
-                        'Find'
+                        'Find repositories by name, author, description or&nbps;tag'
                     )
                 )
             ),
@@ -55580,10 +55579,14 @@ exports['default'] = _react2['default'].createClass({
                 _react2['default'].createElement(
                     'a',
                     { href: '/auth/login', className: 'page-landing__login-button' },
-                    'Organise'
+                    'Login with GitHub'
                 )
             )
         );
+    },
+
+    style: function style() {
+        return '\n            .page-landing {\n                display: flex;\n                flex-direction: column;\n                justify-content: center;\n                align-items: center;\n                height: 100%;\n                width: 100%;\n                overflow: hidden;\n                background: #0E0C18 url(img/bg.jpg) no-repeat;\n                background-size: cover;\n\n                &__title {\n                    text-align: center;\n\n                    h1 {\n                        margin: 0 0 10px 0;\n                        color: #fff;\n                        font-size: 42px;\n                    }\n\n                    h2 {\n                        color: rgba(255, 255, 255, 0.75);\n                        font-size: 18px;\n                    }\n                }\n\n                &__features {\n                    display: flex;\n                    justify-content: space-between;\n                    width: 80%;\n                    max-width: 800px;\n                    margin: 25px 0;\n                }\n\n                &__feature {\n                    display: flex;\n                    flex-direction: column;\n                    align-items: center;\n                    width: 30%;\n                    border: solid 1px rgba(255, 255, 255, 0.5);\n                    border-radius: 4px;\n                    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;\n\n                    &:hover {\n                        background-color: rgba(255, 255, 255, 0.125);\n                    }\n\n                    h3 {\n                        padding: 10px;\n                        margin: 0;\n                        color: #fff;\n                        text-align: center;\n                    }\n\n                    a, a:hover {\n                        text-decoration: none;\n                    }\n                }\n\n                &__feature-title {\n                    display: flex;\n                    justify-content: center;\n                    align-items: center;\n                    text-align: center;\n\n                    .octicon {\n                        color: #fff;\n                        font-size: 42px;\n                        margin-right: 10px;\n                    }\n                }\n\n                &__feature-description {\n                    margin-top: 0;\n                    padding: 0 10%;\n                    color: #fff;\n                    text-align: center;\n                }\n\n                &__cta {\n                    text-align: center;\n                }\n\n                &__login-button {\n                    display: block;\n                    padding: 10px 40px;\n                    border: 1px solid #ffffff;\n                    border-radius: 4px;\n                    background: transparent;\n                    color: #ffffff;\n                    font-size: 16px;\n                    text-transform: uppercase;\n                    box-shadow: inset 0 0 0 1px #ffffff;\n                    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;\n                    text-decoration: none;\n\n                    &:hover {\n                        background-color: rgba(255, 255, 255, 0.125);\n                        color: #ffffff;\n                        text-decoration: none;\n                    }\n                }\n            }\n        ';
     }
 
 });
