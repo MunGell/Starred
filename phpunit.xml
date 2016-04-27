@@ -24,5 +24,11 @@
         <env name="CACHE_DRIVER" value="array"/>
         <env name="SESSION_DRIVER" value="array"/>
         <env name="QUEUE_DRIVER" value="sync"/>
+        <env name="DB_DATABASE" value="starred_test"/>
+        <env name="DB_USERNAME" value="homestead"/>
+        <env name="DB_PASSWORD" value="secret"/>
     </php>
+    <logging>
+        <log type="coverage-html" target="tests/coverage" charset="UTF-8"/>
+    </logging>
 </phpunit>
