@@ -23,19 +23,4 @@ class Token extends Model
      * @var array
      */
     protected $fillable = ['id', 'token', 'auth'];
-
-    /**
-     * The attributes excluded from the model's JSON form.
-     *
-     * @var array
-     */
-    protected $hidden = [];
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function user()
-    {
-        return $this->belongsTo('Starred\User');
-    }
 }

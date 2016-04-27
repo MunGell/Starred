@@ -2,9 +2,9 @@
 
 $factory->define(Starred\User::class, function (Faker\Generator $faker) {
     return [
+        'id' => $faker->unique()->randomDigit,
         'login' => $faker->name,
         'avatar' => $faker->imageUrl(),
-        'remember_token' => str_random(10),
     ];
 });
 
@@ -20,7 +20,6 @@ $factory->define(Starred\Tag::class, function (Faker\Generator $faker) {
         'title' => $faker->word,
     ];
 });
-
 
 $factory->define(Starred\Repository::class, function (Faker\Generator $faker) {
     return [
