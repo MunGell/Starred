@@ -27,6 +27,6 @@ class CreateTokensTable extends Migration
      */
     public function down()
     {
-        Schema::drop('password_resets');
+        Schema::drop('tokens');
     }
 }
