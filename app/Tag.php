@@ -1,4 +1,4 @@
-<?php namespace App;
+<?php namespace Starred;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
@@ -35,7 +35,7 @@ class Tag extends Model
 
     public function repositories()
     {
-        return $this->belongsToMany('App\Repository');
+        return $this->belongsToMany('Starred\Repository');
     }
 
     public static function findOrCreate($title)

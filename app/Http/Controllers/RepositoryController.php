@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace Starred\Http\Controllers;
 
-use App\Repository;
-use App\Tag;
+use Starred\Repository;
+use Starred\Tag;
 use \Auth;
 use \Input;
 

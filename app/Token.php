@@ -1,4 +1,4 @@
-<?php namespace App;
+<?php namespace Starred;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -28,7 +28,7 @@ class Token extends Model
 
     public function user()
     {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo('Starred\User');
     }
 
 }

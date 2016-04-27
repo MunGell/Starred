@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Jobs;
+namespace Starred\Jobs;
 
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;
@@ -10,10 +10,10 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Github\Client as Client;
 use Github\ResultPager as Paginator;
 
-use App\Github\RateLimit;
-use App\Repository;
-use App\User;
-use App\Tag;
+use Starred\Github\RateLimit;
+use Starred\Repository;
+use Starred\User;
+use Starred\Tag;
 
 class SyncRepos extends Job implements SelfHandling, ShouldQueue
 {

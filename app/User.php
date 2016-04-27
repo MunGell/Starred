@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace Starred;
 
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
@@ -36,7 +36,7 @@ class User extends Model implements AuthenticatableContract
 
     public function token()
     {
-        return $this->hasOne('App\Token', 'id');
+        return $this->hasOne('Starred\Token', 'id');
     }
 
     public function tags()
@@ -47,7 +47,7 @@ class User extends Model implements AuthenticatableContract
 
     public function repositories()
     {
-        return $this->belongsToMany('App\Repository');
+        return $this->belongsToMany('Starred\Repository');
     }
 
     public function jobs()

@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace Starred\Http\Controllers;
 
-use App\Tag;
+use Starred\Tag;
 use Auth;
 
 class TagController extends Controller

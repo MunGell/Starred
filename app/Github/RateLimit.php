@@ -1,10 +1,10 @@
-<?php namespace App\Github;
+<?php namespace Starred\Github;
 
 use Github\Client as Client;
 
 /**
  * Class RateLimit
- * @package App\Github
+ * @package Starred\Github
  * @todo: use library for this now
  */
 class RateLimit

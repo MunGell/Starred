@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace Starred\Http\Controllers;
 
-use App\Jobs\SyncRepos;
+use Starred\Jobs\SyncRepos;
 
 class SyncController extends Controller
 {

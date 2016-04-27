@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace Starred\Http\Controllers\Auth;
 
-use App\User;
-use App\Token;
+use Starred\User;
+use Starred\Token;
 
 use Validator;
-use App\Http\Controllers\Controller;
+use Starred\Http\Controllers\Controller;
 use Laravel\Socialite\Facades\Socialite;
 use \Auth;
 

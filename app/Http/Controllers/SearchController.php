@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace Starred\Http\Controllers;
 
 use Auth;
 use Illuminate\Pagination\Paginator;

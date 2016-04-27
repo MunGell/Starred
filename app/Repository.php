@@ -1,4 +1,4 @@
-<?php namespace App;
+<?php namespace Starred;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
@@ -48,12 +48,12 @@ class Repository extends Model
 
     public function users()
     {
-        return $this->belongsToMany('App\User');
+        return $this->belongsToMany('Starred\User');
     }
 
     public function allTags()
     {
-        return $this->belongsToMany('App\Tag');
+        return $this->belongsToMany('Starred\Tag');
     }
 
     public function tags($user_id)
