@@ -1,4 +1,6 @@
-<?php namespace App\Http\Controllers;
+<?php
+
+namespace App\Http\Controllers;
 
 use Auth;
 use Illuminate\Pagination\Paginator;
@@ -15,7 +17,8 @@ class SearchController extends Controller
     {
         $user = Auth::user();
         $tags = $user->searchTags($keyword);
-        $repositories = new Paginator($user->searchRepositories($keyword, Paginator::resolveCurrentPage()), $user->getPerPage());
+        $repositories = new Paginator($user->searchRepositories($keyword, Paginator::resolveCurrentPage()),
+            $user->getPerPage());
 
         if (strlen($keyword) > 1) {
             return [

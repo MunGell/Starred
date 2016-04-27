@@ -1,7 +1,8 @@
-<?php namespace App\Http\Controllers;
+<?php
+
+namespace App\Http\Controllers;
 
 use App\Jobs\SyncRepos;
-
 
 class SyncController extends Controller
 {
@@ -26,6 +27,7 @@ class SyncController extends Controller
     public function checkQueue()
     {
         $user = \Auth::user();
+
         return [
             'queue' => count($user->jobs())
         ];
