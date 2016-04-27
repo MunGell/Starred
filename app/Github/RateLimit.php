@@ -2,6 +2,11 @@
 
 use Github\Client as Client;
 
+/**
+ * Class RateLimit
+ * @package App\Github
+ * @todo: use library for this now
+ */
 class RateLimit
 {
     protected $data = null;
