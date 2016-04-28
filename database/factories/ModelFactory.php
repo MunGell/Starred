@@ -23,7 +23,7 @@ $factory->define(Starred\Tag::class, function (Faker\Generator $faker) {
 
 $factory->define(Starred\Repository::class, function (Faker\Generator $faker) {
     return [
-        'id' => $faker->numberBetween(1,100),
+        'id' => $faker->unique()->randomNumber(5),
         'name' => $faker->slug(10),
         'full_name' => $faker->slug(10),
         'url' => $faker->url,

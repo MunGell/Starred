@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 use \DB;
 use Starred\Contracts\ModelInterface;
 
-class User extends Model implements ModelInterface
+class User extends Model implements \Illuminate\Contracts\Auth\Authenticatable
 {
     use Authenticatable;
 
