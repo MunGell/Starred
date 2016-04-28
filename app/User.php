@@ -6,8 +6,9 @@ use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 
 use \DB;
+use Starred\Contracts\ModelInterface;
 
-class User extends Model
+class User extends Model implements ModelInterface
 {
     use Authenticatable;
 

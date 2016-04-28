@@ -4,13 +4,14 @@ namespace Starred;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
+use Starred\Contracts\ModelInterface;
 
 /**
  * Class Repository
  * @todo    add repository starred date
  * @package Starred
  */
-class Repository extends Model
+class Repository extends Model implements ModelInterface
 {
     /**
      * @var bool

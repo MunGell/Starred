@@ -3,12 +3,13 @@
 namespace Starred;
 
 use Illuminate\Database\Eloquent\Model;
+use Starred\Contracts\ModelInterface;
 
 /**
  * Class Token
  * @package Starred
  */
-class Token extends Model
+class Token extends Model implements ModelInterface
 {
     /**
      * The database table used by the model.

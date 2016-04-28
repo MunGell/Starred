@@ -4,12 +4,13 @@ namespace Starred;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
+use Starred\Contracts\ModelInterface;
 
 /**
  * Class Tag
  * @package Starred
  */
-class Tag extends Model
+class Tag extends Model implements ModelInterface
 {
     /**
      * @var bool
