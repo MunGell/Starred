@@ -23,4 +23,11 @@ class Token extends Model
      * @var array
      */
     protected $fillable = ['id', 'token', 'auth'];
+
+    /**
+     * Indicates if the IDs are auto-incrementing.
+     *
+     * @var bool
+     */
+    public $incrementing = false;
 }

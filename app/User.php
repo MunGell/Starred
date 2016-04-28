@@ -4,11 +4,10 @@ namespace Starred;
 
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 
 use \DB;
 
-class User extends Model implements AuthenticatableContract
+class User extends Model
 {
     use Authenticatable;
 
@@ -26,6 +25,12 @@ class User extends Model implements AuthenticatableContract
      */
     protected $fillable = ['id', 'login', 'avatar'];
 
+    /**
+     * Indicates if the IDs are auto-incrementing.
+     *
+     * @var bool
+     */
+    public $incrementing = false;
 
     /**
      * The attributes excluded from the model's JSON form.

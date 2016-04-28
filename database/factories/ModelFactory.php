@@ -2,8 +2,8 @@
 
 $factory->define(Starred\User::class, function (Faker\Generator $faker) {
     return [
-        'id' => $faker->unique()->randomDigit,
-        'login' => $faker->name,
+        'id' => $faker->unique()->randomNumber(5),
+        'login' => $faker->slug,
         'avatar' => $faker->imageUrl(),
     ];
 });
