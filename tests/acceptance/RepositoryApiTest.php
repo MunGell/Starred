@@ -87,7 +87,7 @@ class RepositoryApiTest extends TestCase
     /**
      * @test
      */
-    public function getOne()
+    public function getShow()
     {
         $response = $this->call('GET', action('RepositoryController@show', $this->repositories[0]->id));
         $json = json_decode($response->getContent());

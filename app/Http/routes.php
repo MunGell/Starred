@@ -9,8 +9,8 @@ Route::get('/', 'AppController@index');
 Route::group(['prefix' => 'repositories'], function () {
     Route::get('/', 'RepositoryController@index');
     Route::get('{id}', 'RepositoryController@show')->where('id', '[0-9]+');
-    Route::post('{id}/tags/add', 'RepositoryController@addTag')->where('id', '[0-9]+');
-    Route::post('{id}/tags/remove', 'RepositoryController@removeTag')->where('id', '[0-9]+');
+    Route::post('{id}/tags/add', 'TagController@store')->where('id', '[0-9]+');
+    Route::post('{id}/tags/remove', 'TagController@destroy')->where('id', '[0-9]+');
 });
 
 Route::group(['prefix' => 'tags'], function () {

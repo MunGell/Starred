@@ -2,7 +2,7 @@
 
 namespace Starred\Http\Controllers;
 
-use Auth;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Pagination\Paginator;
 
 class SearchController extends Controller

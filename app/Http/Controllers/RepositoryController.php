@@ -3,9 +3,8 @@
 namespace Starred\Http\Controllers;
 
 use Starred\Repository;
-use Starred\Tag;
-use \Auth;
-use \Input;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Input;
 
 /**
  * Class RepositoryController
@@ -13,14 +12,6 @@ use \Input;
  */
 class RepositoryController extends Controller
 {
-    /**
-     * RepositoryController constructor.
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
     /**
      * @return mixed
      */
@@ -40,45 +31,5 @@ class RepositoryController extends Controller
         $repo->tags = array_values($repo->tags(Auth::user()->id)->toArray());
 
         return $repo;
-    }
-
-    /**
-     * @param $id
-     *
-     * @todo: move to tags controller
-     * @return array|\Illuminate\Database\Eloquent\Model|null
-     */
-    public function addTag($id)
-    {
-        $title = Input::get('title');
-        $tag = Tag::findOrCreate($title);
-
-        if (!$tag->repositories()->getRelatedIds()->contains($id)) {
-            $tag->repositories()->attach($id);
-            $tag = [$tag];
-        } else {
-            $tag = [];
-        }
-
-        return $tag;
-    }
-
-    /**
-     * @param $id
-     *
-     * @todo: move to tags controller
-     * @return array
-     */
-    public function removeTag($id)
-    {
-        $tag_id = Input::get('tag');
-        $tag = Tag::find($tag_id);
-
-        $tag->repositories()->detach($id);
-
-        return [
-            'id' => $tag_id,
-            'removed' => true
-        ];
     }
 }
