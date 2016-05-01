@@ -3,18 +3,16 @@
 namespace Starred\Http\Controllers;
 
 use Starred\Jobs\SyncRepos;
+use Illuminate\Support\Facades\Auth;
 
 class SyncController extends Controller
 {
-
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
+    /**
+     * @return mixed
+     */
     public function index()
     {
-        $user = \Auth::user();
+        $user = Auth::user();
 
         if (count($user->jobs()) === 0) {
             $job = new SyncRepos($user);
@@ -24,13 +22,15 @@ class SyncController extends Controller
         return redirect('/#/repositories');
     }
 
+    /**
+     * @return array
+     */
     public function checkQueue()
     {
-        $user = \Auth::user();
+        $user = Auth::user();
 
         return [
             'queue' => count($user->jobs())
         ];
     }
-
 }

@@ -34,9 +34,13 @@ class SyncRepos extends Job implements SelfHandling, ShouldQueue
      */
     public function handle()
     {
+        if (!isset($this->user->token)) {
+            return;
+        }
+
         $limit = new RateLimit($this->user->token->token);
 
-        if($limit->getData()->isReached()) {
+        if ($limit->getData()->isReached()) {
             return;
         }
 
