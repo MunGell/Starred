@@ -53,6 +53,6 @@
     </head>
     <body>
         <div id="app"></div>
-        <script type="text/javascript" src="{{ asset('js/bundle.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('js/index.js') }}"></script>
     </body>
 </html>
