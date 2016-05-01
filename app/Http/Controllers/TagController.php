@@ -28,18 +28,17 @@ class TagController extends Controller
     }
 
     /**
-     * @param $id
-     *
      * @todo: change return type to object or 204
      * @return array|\Illuminate\Database\Eloquent\Model|null
      */
-    public function store($id)
+    public function store()
     {
         $title = Input::get('title');
+        $repository_id = Input::get('repository_id');
         $tag = Tag::findOrCreate($title);
 
-        if (!$tag->repositories()->getRelatedIds()->contains($id)) {
-            $tag->repositories()->attach($id);
+        if (!$tag->repositories()->getRelatedIds()->contains($repository_id)) {
+            $tag->repositories()->attach($repository_id);
             $tag = [$tag];
         } else {
             $tag = [];
@@ -49,17 +48,17 @@ class TagController extends Controller
     }
 
     /**
-     * @param $id
-     *
      * @todo: refactor
      * @return array
      */
-    public function destroy($id)
+    public function destroy()
     {
-        $tag_id = Input::get('tag');
+        $tag_id = Input::get('tag_id');
+        $repository_id = Input::get('repository_id');
+
         $tag = Tag::find($tag_id);
 
-        $tag->repositories()->detach($id);
+        $tag->repositories()->detach($repository_id);
 
         return [
             'id' => $tag_id,

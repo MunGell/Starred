@@ -55763,7 +55763,10 @@ exports['default'] = _react2['default'].createClass({
     },
 
     _onTagAdd: function _onTagAdd(title) {
-        _utilsApi2['default'].addTag(this.state.id, { title: title }, this._onStateTagAdd);
+        _utilsApi2['default'].addTag({
+            repository_id: this.state.id,
+            title: title
+        }, this._onStateTagAdd);
     },
 
     _onStateTagAdd: function _onStateTagAdd(response) {
@@ -55773,7 +55776,11 @@ exports['default'] = _react2['default'].createClass({
     },
 
     _onTagClear: function _onTagClear(id) {
-        _utilsApi2['default'].removeTag(this.state.id, { 'tag': id }, this._onStateTagRemove);
+        _utilsApi2['default'].removeTag({
+            '_method': 'DELETE',
+            'repository_id': this.state.id,
+            'tag_id': id
+        }, this._onStateTagRemove);
     },
 
     _onStateTagRemove: function _onStateTagRemove(response) {
@@ -55822,7 +55829,8 @@ exports['default'] = _react2['default'].createClass({
                         _react2['default'].createElement(
                             'a',
                             { className: 'page-repository__github-link', href: this.state.url },
-                            _react2['default'].createElement(_elementalLibComponentsGlyph2['default'], { icon: 'mark-github', target: '_blank' })
+                            _react2['default'].createElement(_elementalLibComponentsGlyph2['default'], { icon: 'mark-github',
+                                target: '_blank' })
                         ),
                         _react2['default'].createElement(
                             'h1',
@@ -55843,7 +55851,8 @@ exports['default'] = _react2['default'].createClass({
                 _react2['default'].createElement(
                     'div',
                     { className: 'page-repository__tags' },
-                    _react2['default'].createElement(_componentsTagManager2['default'], { tags: this.state.tags, onTagClick: this._onTagClick, onTagAdd: this._onTagAdd, onTagClear: this._onTagClear })
+                    _react2['default'].createElement(_componentsTagManager2['default'], { tags: this.state.tags, onTagClick: this._onTagClick, onTagAdd: this._onTagAdd,
+                        onTagClear: this._onTagClear })
                 )
             )
         );
@@ -56165,12 +56174,12 @@ Api.prototype.getRepository = function (id, callback) {
     this.get('/repositories/' + id, callback);
 };
 
-Api.prototype.addTag = function (id, data, callback) {
-    this.post('/repositories/' + id + '/tags/add', data, callback);
+Api.prototype.addTag = function (data, callback) {
+    this.post('/tags/', data, callback);
 };
 
-Api.prototype.removeTag = function (id, data, callback) {
-    this.post('/repositories/' + id + '/tags/remove', data, callback);
+Api.prototype.removeTag = function (data, callback) {
+    this.post('/tags/', data, callback);
 };
 
 Api.prototype.search = function (keyword, page, callback) {

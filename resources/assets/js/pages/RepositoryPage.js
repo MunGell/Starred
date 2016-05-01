@@ -29,7 +29,10 @@ export default React.createClass({
     },
 
     _onTagAdd: function (title) {
-        Api.addTag(this.state.id, { title: title }, this._onStateTagAdd);
+        Api.addTag({
+            repository_id: this.state.id,
+            title: title
+        }, this._onStateTagAdd);
     },
 
     _onStateTagAdd: function (response) {
@@ -39,10 +42,14 @@ export default React.createClass({
     },
 
     _onTagClear: function (id) {
-        Api.removeTag(this.state.id, { 'tag': id }, this._onStateTagRemove);
+        Api.removeTag({
+            '_method': 'DELETE',
+            'repository_id': this.state.id,
+            'tag_id': id
+        }, this._onStateTagRemove);
     },
 
-    _onStateTagRemove: function(response) {
+    _onStateTagRemove: function (response) {
         var i, tag, newState = this.state;
 
         for (i in this.state.tags) {
@@ -56,11 +63,11 @@ export default React.createClass({
         }
     },
 
-    _onTagClick: function(id) {
+    _onTagClick: function (id) {
         window.location.hash = '/tags/' + id;
     },
 
-    style: function() {
+    style: function () {
         return `
             .page-repository {
                 max-width: 1200px;
@@ -119,7 +126,8 @@ export default React.createClass({
                 <div className="page-repository__body">
                     <div className="page-repository__content">
                         <div className="page-repository__title">
-                            <a className="page-repository__github-link" href={this.state.url}><Glyph icon="mark-github" target="_blank" /></a>
+                            <a className="page-repository__github-link" href={this.state.url}><Glyph icon="mark-github"
+                                                                                                     target="_blank"/></a>
                             <h1>{this.state.name}</h1>
                         </div>
                         <div className="page-repository__description">
@@ -127,7 +135,8 @@ export default React.createClass({
                         </div>
                     </div>
                     <div className="page-repository__tags">
-                        <TagManager tags={this.state.tags} onTagClick={this._onTagClick} onTagAdd={this._onTagAdd} onTagClear={this._onTagClear} />
+                        <TagManager tags={this.state.tags} onTagClick={this._onTagClick} onTagAdd={this._onTagAdd}
+                                    onTagClear={this._onTagClear}/>
                     </div>
                 </div>
             </div>

@@ -1,9 +1,10 @@
 <?php
 
 $router->group([
-    'middleware' => ['web'],
-    'prefix' => 'tags'
+    'middleware' => ['web']
 ], function () use ($router) {
-    $router->get('/', 'TagController@index');
-    $router->get('{id}', 'TagController@show')->where('id', '[0-9]+');
+    $router->get('tags', 'TagController@index');
+    $router->post('tags', 'TagController@store');
+    $router->delete('tags', 'TagController@destroy');
+    $router->get('tags/{id}', 'TagController@show')->where('id', '[0-9]+');
 });

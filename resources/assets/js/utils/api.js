@@ -25,12 +25,12 @@ Api.prototype.getRepository = function (id, callback) {
     this.get('/repositories/' + id, callback);
 };
 
-Api.prototype.addTag = function (id, data, callback) {
-    this.post('/repositories/' + id + '/tags/add', data, callback);
+Api.prototype.addTag = function (data, callback) {
+    this.post('/tags/', data, callback);
 };
 
-Api.prototype.removeTag = function (id, data, callback) {
-    this.post('/repositories/' + id + '/tags/remove', data, callback);
+Api.prototype.removeTag = function (data, callback) {
+    this.post('/tags/', data, callback);
 };
 
 Api.prototype.search = function(keyword, page, callback) {

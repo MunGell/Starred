@@ -117,7 +117,8 @@ class TagApiTest extends TestCase
      */
     public function postStore()
     {
-        $response = $this->call('POST', action('TagController@store', $this->repository->id), [
+        $response = $this->call('POST', action('TagController@store'), [
+            'repository_id' => $this->repository->id,
             'title' => 'Testing Title'
         ]);
         $json = json_decode($response->getContent());
@@ -130,8 +131,10 @@ class TagApiTest extends TestCase
             $this->assertObjectHasAttribute('title', $t);
         }
 
-        $response = $this->call('POST', action('TagController@store', $this->repository->id),
-            ['title' => 'Testing Title']);
+        $response = $this->call('POST', action('TagController@store'), [
+            'repository_id' => $this->repository->id,
+            'title' => 'Testing Title'
+        ]);
         $json = json_decode($response->getContent());
 
         $this->assertInternalType('array', $json);
@@ -143,8 +146,10 @@ class TagApiTest extends TestCase
      */
     public function deleteDestroy()
     {
-        $response = $this->call('POST', action('TagController@destroy', $this->repository->id), [
-            'tag' => $this->tags[0]->id
+        $response = $this->call('POST', action('TagController@destroy'), [
+            '_method' => 'DELETE',
+            'repository_id' => $this->repository->id,
+            'tag_id' => $this->tags[0]->id
         ]);
         $json = json_decode($response->getContent());
 
