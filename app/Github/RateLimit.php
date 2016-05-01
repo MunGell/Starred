@@ -62,5 +62,4 @@ class RateLimit
     public function isReached($estimation = 20) {
         return ($this->data->rate->remaining < $estimation);
     }
-
 }

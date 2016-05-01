@@ -1,7 +1,7 @@
 <?php
 
 $router->controllers([
-    'auth' => 'Auth\AuthController',
+    'auth' => 'AuthController',
 ]);
 
 $router->get('/', 'AppController@index');
