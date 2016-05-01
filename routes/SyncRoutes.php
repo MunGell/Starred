@@ -5,5 +5,5 @@ $router->group([
     'prefix' => 'sync'
 ], function () use ($router) {
     $router->get('/', 'SyncController@index');
-    $router->get('sync/queue', 'SyncController@checkQueue');
+    $router->get('/queue', 'SyncController@checkQueue');
 });
