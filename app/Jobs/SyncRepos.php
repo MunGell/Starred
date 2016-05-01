@@ -15,10 +15,17 @@ use Starred\Repository;
 use Starred\User;
 use Starred\Tag;
 
+/**
+ * Class SyncRepos
+ * @package Starred\Jobs
+ */
 class SyncRepos extends Job implements SelfHandling, ShouldQueue
 {
     use InteractsWithQueue, SerializesModels;
 
+    /**
+     * @var \Starred\User
+     */
     protected $user;
 
     /**

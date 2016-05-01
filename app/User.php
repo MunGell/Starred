@@ -5,8 +5,7 @@ namespace Starred;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 
-use \DB;
-use Starred\Contracts\ModelInterface;
+use Illuminate\Support\Facades\DB;
 
 class User extends Model implements \Illuminate\Contracts\Auth\Authenticatable
 {
@@ -40,22 +39,34 @@ class User extends Model implements \Illuminate\Contracts\Auth\Authenticatable
      */
     protected $hidden = [];
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
     public function token()
     {
         return $this->hasOne('Starred\Token', 'id');
     }
 
+    /**
+     * @return mixed
+     */
     public function tags()
     {
         return $this->buildTagQuery()
             ->paginate();
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
     public function repositories()
     {
         return $this->belongsToMany('Starred\Repository');
     }
 
+    /**
+     * @return mixed
+     */
     public function jobs()
     {
         return DB::table('user_job')
@@ -64,6 +75,11 @@ class User extends Model implements \Illuminate\Contracts\Auth\Authenticatable
             ->select('jobs.id')->get();
     }
 
+    /**
+     * @param $jobId
+     *
+     * @return mixed
+     */
     public function attachJob($jobId)
     {
         return DB::table('user_job')
@@ -73,6 +89,11 @@ class User extends Model implements \Illuminate\Contracts\Auth\Authenticatable
             ]);
     }
 
+    /**
+     * @param $jobId
+     *
+     * @return mixed
+     */
     public function detachJob($jobId)
     {
         return DB::table('user_job')
@@ -80,6 +101,12 @@ class User extends Model implements \Illuminate\Contracts\Auth\Authenticatable
             ->delete();
     }
 
+    /**
+     * @param     $keyword
+     * @param int $currentPage
+     *
+     * @return mixed
+     */
     public function searchTags($keyword, $currentPage = 0)
     {
         return $this->buildTagQuery()
@@ -88,6 +115,12 @@ class User extends Model implements \Illuminate\Contracts\Auth\Authenticatable
             ->get();
     }
 
+    /**
+     * @param $keyword
+     * @param $currentPage
+     *
+     * @return mixed
+     */
     public function searchRepositories($keyword, $currentPage)
     {
         return $this->repositories()
@@ -100,6 +133,9 @@ class User extends Model implements \Illuminate\Contracts\Auth\Authenticatable
             ->get();
     }
 
+    /**
+     * @return mixed
+     */
     private function buildTagQuery()
     {
         return DB::table('repository_user')
