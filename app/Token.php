@@ -1,10 +1,16 @@
-<?php namespace App;
+<?php
+
+namespace Starred;
 
 use Illuminate\Database\Eloquent\Model;
+use Starred\Contracts\ModelInterface;
 
-class Token extends Model
+/**
+ * Class Token
+ * @package Starred
+ */
+class Token extends Model implements ModelInterface
 {
-
     /**
      * The database table used by the model.
      *
@@ -20,15 +26,9 @@ class Token extends Model
     protected $fillable = ['id', 'token', 'auth'];
 
     /**
-     * The attributes excluded from the model's JSON form.
+     * Indicates if the IDs are auto-incrementing.
      *
-     * @var array
+     * @var bool
      */
-    protected $hidden = [];
-
-    public function user()
-    {
-        return $this->belongsTo('App\User');
-    }
-
+    public $incrementing = false;
 }

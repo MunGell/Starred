@@ -7,16 +7,18 @@
          convertNoticesToExceptions="true"
          convertWarningsToExceptions="true"
          processIsolation="false"
-         stopOnFailure="false"
-         syntaxCheck="false">
+         stopOnFailure="false">
     <testsuites>
         <testsuite name="Application Test Suite">
-            <directory>./tests/</directory>
+            <directory suffix="Test.php">./tests</directory>
         </testsuite>
     </testsuites>
     <filter>
-        <whitelist>
-            <directory suffix=".php">app/</directory>
+        <whitelist processUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">./app</directory>
+            <exclude>
+                <file>./app/Http/routes.php</file>
+            </exclude>
         </whitelist>
     </filter>
     <php>
@@ -24,5 +26,11 @@
         <env name="CACHE_DRIVER" value="array"/>
         <env name="SESSION_DRIVER" value="array"/>
         <env name="QUEUE_DRIVER" value="sync"/>
+        <env name="DB_DATABASE" value="starred_test"/>
+        <env name="DB_USERNAME" value="homestead"/>
+        <env name="DB_PASSWORD" value="secret"/>
     </php>
+    <logging>
+        <log type="coverage-html" target="tests/coverage" charset="UTF-8"/>
+    </logging>
 </phpunit>

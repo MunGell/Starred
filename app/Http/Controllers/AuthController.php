@@ -1,14 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace Starred\Http\Controllers;
 
-use App\User;
-use App\Token;
+use Starred\User;
+use Starred\Token;
 
-use Validator;
-use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite;
-use \Auth;
 
 class AuthController extends Controller
 {
@@ -22,7 +21,7 @@ class AuthController extends Controller
 
     /**
      * Get a validator for an incoming registration request.
-     *
+     * @todo: this function is not used?
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */

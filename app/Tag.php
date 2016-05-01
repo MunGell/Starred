@@ -1,13 +1,18 @@
-<?php namespace App;
+<?php
+
+namespace Starred;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
+use Starred\Contracts\ModelInterface;
 
-class Tag extends Model
+/**
+ * Class Tag
+ * @package Starred
+ */
+class Tag extends Model implements ModelInterface
 {
     /**
-     * {@inheritdoc}
-     *
      * @var bool
      */
     public $timestamps = false;
@@ -33,20 +38,29 @@ class Tag extends Model
      */
     protected $hidden = [];
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
     public function repositories()
     {
-        return $this->belongsToMany('App\Repository');
+        return $this->belongsToMany('Starred\Repository');
     }
 
+    /**
+     * @param string $title
+     *
+     * @return \Illuminate\Database\Eloquent\Model|null
+     */
     public static function findOrCreate($title)
     {
         $title = Str::lower($title);
+
         if (!is_null($model = static::query()->where('title', '=', $title)->first())) {
             return $model;
-        } else {
-            return static::create([
-                'title' => $title
-            ]);
         }
+
+        return static::create([
+            'title' => $title
+        ]);
     }
 }

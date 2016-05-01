@@ -1,21 +1,24 @@
-<?php namespace App\Http\Controllers;
+<?php
 
-use Auth;
+namespace Starred\Http\Controllers;
+
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Pagination\Paginator;
 
 class SearchController extends Controller
 {
-
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
+    /**
+     * @param string $keyword
+     *
+     * @todo: makes no sense, optimise performance
+     * @return array
+     */
     public function index($keyword = '')
     {
         $user = Auth::user();
         $tags = $user->searchTags($keyword);
-        $repositories = new Paginator($user->searchRepositories($keyword, Paginator::resolveCurrentPage()), $user->getPerPage());
+        $repositories = new Paginator($user->searchRepositories($keyword, Paginator::resolveCurrentPage()),
+            $user->getPerPage());
 
         if (strlen($keyword) > 1) {
             return [
@@ -29,5 +32,4 @@ class SearchController extends Controller
             'repositories' => []
         ];
     }
-
 }

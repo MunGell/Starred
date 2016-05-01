@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Events;
+namespace Starred\Events;
 
 abstract class Event
 {

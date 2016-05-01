@@ -1,26 +1,24 @@
-<?php namespace App;
+<?php
+
+namespace Starred;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
-use \DB;
+use Starred\Contracts\ModelInterface;
 
 /**
  * Class Repository
- * @todo add repository starred date
- * @package App
+ * @todo    add repository starred date
+ * @package Starred
  */
-class Repository extends Model
+class Repository extends Model implements ModelInterface
 {
     /**
-     * {@inheritdoc}
-     *
      * @var bool
      */
     public $incrementing = false;
 
     /**
-     * {@inheritdoc}
-     *
      * @var bool
      */
     public $timestamps = false;
@@ -46,21 +44,32 @@ class Repository extends Model
      */
     protected $hidden = [];
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
     public function users()
     {
-        return $this->belongsToMany('App\User');
+        return $this->belongsToMany('Starred\User', 'repository_user');
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
     public function allTags()
     {
-        return $this->belongsToMany('App\Tag');
+        return $this->belongsToMany('Starred\Tag');
     }
 
+    /**
+     * @param int $user_id
+     *
+     * @return Collection
+     */
     public function tags($user_id)
     {
         $repository_id = $this->id;
 
-        $tags = DB::table('users')
+        $tags = \DB::table('users')
             ->where('users.id', '=', $user_id)
             ->join('repository_user', function ($join) use ($repository_id) {
                 $join->on('repository_user.user_id', '=', 'users.id')
@@ -73,5 +82,4 @@ class Repository extends Model
 
         return Collection::make($tags)->sortBy('title');
     }
-
 }

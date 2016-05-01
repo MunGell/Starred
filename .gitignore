@@ -7,3 +7,6 @@
 
 .phpstorm.meta.php
 _ide_helper.php
+
+/tests/coverage
+/public/report.html
