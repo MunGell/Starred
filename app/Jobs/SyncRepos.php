@@ -10,7 +10,6 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Github\Client as Client;
 use Github\ResultPager as Paginator;
 
-use Starred\Github\RateLimit;
 use Starred\Repository;
 use Starred\User;
 use Starred\Tag;
@@ -41,13 +40,8 @@ class SyncRepos extends Job implements SelfHandling, ShouldQueue
      */
     public function handle()
     {
-        if (!isset($this->user->token)) {
-            return;
-        }
-
-        $limit = new RateLimit($this->user->token->token);
-
-        if ($limit->getData()->isReached()) {
+        // @todo: temporary fix for the acceptance tests
+        if (!isset($this->user->token->token)) {
             return;
         }
 
@@ -58,8 +52,11 @@ class SyncRepos extends Job implements SelfHandling, ShouldQueue
             'Accept' => sprintf('application/vnd.github.%s.star+json', $client->getOption('api_version'))
         ]);
 
-        $repos = $paginator->fetchAll($client->api('current_user')->starring(), 'all', []);
+        if ($client->api('rate_limit')->getRateLimits()['rate']['remaining'] < 20) {
+            return;
+        }
 
+        $repos = $paginator->fetchAll($client->api('current_user')->starring(), 'all', []);
         $repo_ids = [];
 
         // @todo: change to direct database connection for performance reasons
