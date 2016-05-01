@@ -7,12 +7,12 @@ use Illuminate\Pagination\Paginator;
 
 class SearchController extends Controller
 {
-
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
+    /**
+     * @param string $keyword
+     *
+     * @todo: makes no sense, optimise performance
+     * @return array
+     */
     public function index($keyword = '')
     {
         $user = Auth::user();
@@ -32,5 +32,4 @@ class SearchController extends Controller
             'repositories' => []
         ];
     }
-
 }
