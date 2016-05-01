@@ -2,9 +2,13 @@
 
 namespace Starred\Http\Controllers;
 
-use Starred\Jobs\SyncRepos;
+use Starred\Jobs\GithubSync;
 use Illuminate\Support\Facades\Auth;
 
+/**
+ * Class SyncController
+ * @package Starred\Http\Controllers
+ */
 class SyncController extends Controller
 {
     /**
@@ -15,7 +19,7 @@ class SyncController extends Controller
         $user = Auth::user();
 
         if (count($user->jobs()) === 0) {
-            $job = new SyncRepos($user);
+            $job = new GithubSync($user);
             $user->attachJob($this->dispatch($job));
         }
 

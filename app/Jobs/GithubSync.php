@@ -15,10 +15,10 @@ use Starred\User;
 use Starred\Tag;
 
 /**
- * Class SyncRepos
+ * Class GithubSync
  * @package Starred\Jobs
  */
-class SyncRepos extends Job implements SelfHandling, ShouldQueue
+class GithubSync extends Job implements SelfHandling, ShouldQueue
 {
     use InteractsWithQueue, SerializesModels;
 
@@ -28,9 +28,10 @@ class SyncRepos extends Job implements SelfHandling, ShouldQueue
     protected $user;
 
     /**
-     * SyncRepos constructor.
+     * GithubSync constructor.
      *
      * @param \Starred\User $user
+     * @codeCoverageIgnore
      */
     public function __construct(User $user)
     {
