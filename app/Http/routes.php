@@ -1,23 +1,35 @@
 <?php
 
-Route::controllers([
+$router->controllers([
     'auth' => 'Auth\AuthController',
 ]);
 
-Route::get('/', 'AppController@index');
+$router->get('/', 'AppController@index');
+$router->get('search/{keyword?}', 'SearchController@index');
 
-Route::group(['prefix' => 'repositories'], function () {
-    Route::get('/', 'RepositoryController@index');
-    Route::get('{id}', 'RepositoryController@show')->where('id', '[0-9]+');
-    Route::post('{id}/tags/add', 'TagController@store')->where('id', '[0-9]+');
-    Route::post('{id}/tags/remove', 'TagController@destroy')->where('id', '[0-9]+');
+$router->group([
+    'middleware' => ['web'],
+    'prefix' => 'repositories'
+], function () use ($router) {
+    $router->get('/', 'RepositoryController@index');
+    $router->get('{id}', 'RepositoryController@show')->where('id', '[0-9]+');
+    $router->post('{id}/tags/add', 'TagController@store')->where('id', '[0-9]+');
+    $router->post('{id}/tags/remove', 'TagController@destroy')->where('id', '[0-9]+');
 });
 
-Route::group(['prefix' => 'tags'], function () {
-    Route::get('/', 'TagController@index');
-    Route::get('{id}', 'TagController@show')->where('id', '[0-9]+');
+$router->group([
+    'middleware' => ['web'],
+    'prefix' => 'tags'
+], function () use ($router) {
+    $router->get('/', 'TagController@index');
+    $router->get('{id}', 'TagController@show')->where('id', '[0-9]+');
 });
 
-Route::get('search/{keyword?}', 'SearchController@index');
-Route::get('sync', 'SyncController@index');
-Route::get('sync/queue', 'SyncController@checkQueue');
+$router->group([
+    'middleware' => ['web'],
+    'prefix' => 'sync'
+], function () use ($router) {
+    $router->get('/', 'SyncController@index');
+    $router->get('sync/queue', 'SyncController@checkQueue');
+});
+
