@@ -54,11 +54,11 @@ class GuestJourneyTest extends TestCase
     {
         $this->get(action('TagController@index'))
             ->assertRedirectedToAction('AuthController@getLogin');
+        $this->get(action('TagController@show', ['id' => 1000]))
+            ->assertRedirectedToAction('AuthController@getLogin');
         $this->post(action('TagController@store'))
             ->assertRedirectedToAction('AuthController@getLogin');
         $this->delete(action('TagController@destroy'))
-            ->assertRedirectedToAction('AuthController@getLogin');
-        $this->get(action('TagController@show', ['id' => 1000]))
             ->assertRedirectedToAction('AuthController@getLogin');
     }
 }
