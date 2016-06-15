@@ -1,7 +1,7 @@
 <?php
 
 $router->group([
-    'middleware' => ['web']
+    'middleware' => ['web', 'auth']
 ], function () use ($router) {
     $router->get('tags', 'TagController@index');
     $router->post('tags', 'TagController@store');

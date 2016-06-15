@@ -1,7 +1,7 @@
 <?php
 
 $router->group([
-    'middleware' => ['web'],
+    'middleware' => ['web', 'auth'],
     'prefix' => 'repositories'
 ], function () use ($router) {
     $router->get('/', 'RepositoryController@index');

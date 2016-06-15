@@ -1,7 +1,7 @@
 <?php
 
 $router->group([
-    'middleware' => ['web'],
+    'middleware' => ['web', 'auth'],
     'prefix' => 'sync'
 ], function () use ($router) {
     $router->get('/', 'SyncController@index');
