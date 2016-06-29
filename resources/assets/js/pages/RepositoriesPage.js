@@ -12,7 +12,7 @@ export default React.createClass({
 
     getDefaultProps: function () {
         return {
-            data: {
+            params: {
                 page: 1
             }
         }
@@ -34,11 +34,11 @@ export default React.createClass({
     },
 
     componentWillReceiveProps: function (newProps) {
-        this._getApiData(newProps.data.page);
+        this._getApiData(newProps.params.page);
     },
 
     _getApiData: function (page) {
-        page = page || this.props.data.page;
+        page = page || this.props.params.page;
         Api.get('/repositories?page=' + page, this._setData);
     },
 

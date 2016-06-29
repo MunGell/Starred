@@ -19,7 +19,7 @@ export default React.createClass({
     },
 
     componentDidMount: function () {
-        Api.getRepository(this.props.data.id, this._setData);
+        Api.getRepository(this.props.params.id, this._setData);
     },
 
     _setData: function (data) {

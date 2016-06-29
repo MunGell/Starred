@@ -12,7 +12,7 @@ export default React.createClass({
 
     getDefaultProps: function () {
         return {
-            data: {
+            params: {
                 page: 1
             }
         }
@@ -40,8 +40,8 @@ export default React.createClass({
     },
 
     _getApiData: function (page) {
-        page = page || this.props.data.page;
-        Api.get('/tags/' + this.props.data.id + '?page=' + page, this._setData);
+        page = page || this.props.params.page;
+        Api.get('/tags/' + this.props.params.id + '?page=' + page, this._setData);
     },
 
     _onPageChange: function (page) {

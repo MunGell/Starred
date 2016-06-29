@@ -25,7 +25,7 @@ export default React.createClass({
     },
 
     _callApi: function (page) {
-        page = page || this.props.data.page;
+        page = page || this.props.params.page;
         Api.search(this.refs.searchField.value, page, this._setData);
     },
 

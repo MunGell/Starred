@@ -352,7 +352,7 @@
 .disclosure-arrow {
   border-left: 0.3em solid transparent;
   border-right: 0.3em solid transparent;
-  border-top: 0.3em dashed;
+  border-top: 0.3em solid;
   display: inline-block;
   height: 0;
   margin-top: -0.1em;
@@ -1889,19 +1889,19 @@ h6,
 .Alert--success hr {
   border-top-color: #2fae39;
 }
-.Alert--success .alert-link {
+.Alert--success a {
   color: #299a33;
 }
 .Alert--info {
-  background-color: rgba(86, 205, 252, 0.1);
-  border-color: rgba(86, 205, 252, 0.05);
-  color: #56cdfc;
+  background-color: rgba(0, 144, 224, 0.1);
+  border-color: rgba(0, 144, 224, 0.05);
+  color: #0090e0;
 }
 .Alert--info hr {
-  border-top-color: #3dc6fc;
+  border-top-color: #0080c7;
 }
-.Alert--info .alert-link {
-  color: #24befb;
+.Alert--info a {
+  color: #006fad;
 }
 .Alert--warning {
   background-color: rgba(250, 159, 71, 0.1);
@@ -1911,7 +1911,7 @@ h6,
 .Alert--warning hr {
   border-top-color: #f9922e;
 }
-.Alert--warning .alert-link {
+.Alert--warning a {
   color: #f98515;
 }
 .Alert--danger,
@@ -1924,8 +1924,8 @@ h6,
 .Alert--error hr {
   border-top-color: #d12d2d;
 }
-.Alert--danger .alert-link,
-.Alert--error .alert-link {
+.Alert--danger a,
+.Alert--error a {
   color: #bc2929;
 }
 .BlankState {
@@ -2414,9 +2414,8 @@ fieldset[disabled] .Button--link {
   text-decoration: underline;
 }
 .Button--link-text {
-  color: #1385e5;
-  font-weight: normal;
   color: #333;
+  font-weight: normal;
 }
 .Button--link-text,
 .Button--link-text:active,
@@ -2436,49 +2435,37 @@ fieldset[disabled] .Button--link-text {
 .Button--link-text:hover,
 .Button--link-text:focus {
   background-color: transparent;
-  color: #3c9def;
+  color: #1385e5;
   text-decoration: underline;
 }
-.Button--link-text:hover,
-.Button--link-text:focus {
-  color: #1385e5;
-  outline: none;
-}
-.Button--link-cancel {
+.Button--link-primary {
   color: #1385e5;
   font-weight: normal;
-  color: #999;
 }
-.Button--link-cancel,
-.Button--link-cancel:active,
-.Button--link-cancel.active,
-.Button--link-cancel[disabled],
-fieldset[disabled] .Button--link-cancel {
+.Button--link-primary,
+.Button--link-primary:active,
+.Button--link-primary.active,
+.Button--link-primary[disabled],
+fieldset[disabled] .Button--link-primary {
   box-shadow: none;
   background-color: transparent;
 }
-.Button--link-cancel,
-.Button--link-cancel:hover,
-.Button--link-cancel:focus,
-.Button--link-cancel:active {
+.Button--link-primary,
+.Button--link-primary:hover,
+.Button--link-primary:focus,
+.Button--link-primary:active {
   border-color: transparent;
   outline: none;
 }
-.Button--link-cancel:hover,
-.Button--link-cancel:focus {
+.Button--link-primary:hover,
+.Button--link-primary:focus {
   background-color: transparent;
-  color: #3c9def;
+  color: #1385e5;
   text-decoration: underline;
 }
-.Button--link-cancel:hover,
-.Button--link-cancel:focus {
-  color: #d64242;
-  outline: none;
-}
 .Button--link-success {
-  color: #1385e5;
-  font-weight: normal;
   color: #34c240;
+  font-weight: normal;
 }
 .Button--link-success,
 .Button--link-success:active,
@@ -2498,18 +2485,87 @@ fieldset[disabled] .Button--link-success {
 .Button--link-success:hover,
 .Button--link-success:focus {
   background-color: transparent;
-  color: #3c9def;
+  color: #34c240;
   text-decoration: underline;
 }
-.Button--link-success:hover,
-.Button--link-success:focus {
-  color: #34c240;
+.Button--link-warning {
+  color: #fa9f47;
+  font-weight: normal;
+}
+.Button--link-warning,
+.Button--link-warning:active,
+.Button--link-warning.active,
+.Button--link-warning[disabled],
+fieldset[disabled] .Button--link-warning {
+  box-shadow: none;
+  background-color: transparent;
+}
+.Button--link-warning,
+.Button--link-warning:hover,
+.Button--link-warning:focus,
+.Button--link-warning:active {
+  border-color: transparent;
   outline: none;
 }
-.Button--link-delete {
-  color: #1385e5;
+.Button--link-warning:hover,
+.Button--link-warning:focus {
+  background-color: transparent;
+  color: #fa9f47;
+  text-decoration: underline;
+}
+.Button--link-danger {
+  color: #d64242;
   font-weight: normal;
+}
+.Button--link-danger,
+.Button--link-danger:active,
+.Button--link-danger.active,
+.Button--link-danger[disabled],
+fieldset[disabled] .Button--link-danger {
+  box-shadow: none;
+  background-color: transparent;
+}
+.Button--link-danger,
+.Button--link-danger:hover,
+.Button--link-danger:focus,
+.Button--link-danger:active {
+  border-color: transparent;
+  outline: none;
+}
+.Button--link-danger:hover,
+.Button--link-danger:focus {
+  background-color: transparent;
+  color: #d64242;
+  text-decoration: underline;
+}
+.Button--link-cancel {
   color: #999;
+  font-weight: normal;
+}
+.Button--link-cancel,
+.Button--link-cancel:active,
+.Button--link-cancel.active,
+.Button--link-cancel[disabled],
+fieldset[disabled] .Button--link-cancel {
+  box-shadow: none;
+  background-color: transparent;
+}
+.Button--link-cancel,
+.Button--link-cancel:hover,
+.Button--link-cancel:focus,
+.Button--link-cancel:active {
+  border-color: transparent;
+  outline: none;
+}
+.Button--link-cancel:hover,
+.Button--link-cancel:focus {
+  background-color: transparent;
+  color: #d64242;
+  text-decoration: underline;
+}
+.Button--link-delete {
+  color: #999;
+  font-weight: normal;
 }
 .Button--link-delete,
 .Button--link-delete:active,
@@ -2529,7 +2585,7 @@ fieldset[disabled] .Button--link-delete {
 .Button--link-delete:hover,
 .Button--link-delete:focus {
   background-color: transparent;
-  color: #3c9def;
+  color: #d64242;
   text-decoration: underline;
 }
 .Button--link-delete:hover,
@@ -2608,6 +2664,13 @@ fieldset[disabled] .Button--link-delete {
 .Button > .octicon:only-child {
   margin-left: 0;
   margin-right: 0;
+}
+.Card {
+  background-color: white;
+  border-radius: 0.125em;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.075), 0 0 0 1px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1em;
+  padding: 1em;
 }
 .Dropdown {
   display: inline-block;
@@ -2943,7 +3006,7 @@ textarea.FormInput {
   color: #34c240;
 }
 .FormNote--info {
-  color: #56cdfc;
+  color: #0090e0;
 }
 .FormNote--warning {
   color: #fa9f47;
@@ -3083,9 +3146,9 @@ textarea.FormInput {
   padding-left: 0;
 }
 .InputGroup_section--grow {
-  -webkit-flex: 1 1 0;
-  -ms-flex: 1 1 0;
-  flex: 1 1 0;
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
 }
 .InputGroup_section > .FormInput,
 .InputGroup_section > .Button {
@@ -3137,6 +3200,7 @@ textarea.FormInput {
   visibility: visible;
 }
 .Modal-dialog {
+  max-width: 100%;
   padding: 10px;
   position: relative;
   width: auto;
@@ -3166,7 +3230,15 @@ textarea.FormInput {
 @media (min-width: 768px) {
   .Modal-dialog {
     margin: 80px auto;
-    width: 768px;
+  }
+  .Modal-dialog--small {
+    width: 320px;
+  }
+  .Modal-dialog--medium {
+    width: 640px;
+  }
+  .Modal-dialog--large {
+    width: 960px;
   }
 }
 .Modal__header,
@@ -3366,19 +3438,19 @@ textarea.FormInput {
 }
 .Pill--info > .Pill__label,
 .Pill--info > .Pill__clear {
-  background-color: #ecf8fd;
-  color: #56cdfc;
+  background-color: #e4f2fa;
+  color: #0090e0;
 }
 .Pill--info > .Pill__label:hover,
 .Pill--info > .Pill__clear:hover,
 .Pill--info > .Pill__label:focus,
 .Pill--info > .Pill__clear:focus {
-  background-color: #daf2fb;
+  background-color: #d2eaf7;
   outline: none;
 }
 .Pill--info > .Pill__label:active,
 .Pill--info > .Pill__clear:active {
-  background-color: #c8ebf9;
+  background-color: #c1e2f4;
 }
 .Pill--success > .Pill__label,
 .Pill--success > .Pill__clear {
@@ -3462,19 +3534,19 @@ textarea.FormInput {
 }
 .Pill--info-inverted > .Pill__label,
 .Pill--info-inverted > .Pill__clear {
-  background-color: #56cdfc;
+  background-color: #0090e0;
   color: white;
 }
 .Pill--info-inverted > .Pill__label:hover,
 .Pill--info-inverted > .Pill__clear:hover,
 .Pill--info-inverted > .Pill__label:focus,
 .Pill--info-inverted > .Pill__clear:focus {
-  background-color: #6fd4fc;
+  background-color: #00a0fa;
   outline: none;
 }
 .Pill--info-inverted > .Pill__label:active,
 .Pill--info-inverted > .Pill__clear:active {
-  background-color: #3dc6fc;
+  background-color: #0080c7;
 }
 .Pill--success-inverted > .Pill__label,
 .Pill--success-inverted > .Pill__clear {
@@ -3585,10 +3657,10 @@ textarea.FormInput {
   color: white;
 }
 .SegmentedControl--info .SegmentedControl__button {
-  color: #56cdfc;
+  color: #0090e0;
 }
 .SegmentedControl--info .SegmentedControl__button.is-selected {
-  background-color: #56cdfc;
+  background-color: #0090e0;
   color: white;
 }
 .SegmentedControl--primary .SegmentedControl__button {
@@ -3837,7 +3909,7 @@ textarea.FormInput {
   color: #1385e5 !important;
 }
 .u-text-info {
-  color: #56cdfc !important;
+  color: #0090e0 !important;
 }
 .u-text-warning {
   color: #fa9f47 !important;
@@ -3871,10 +3943,8 @@ textarea.FormInput {
 .u-text-kern {
   text-rendering: optimizeLegibility;
   /* 1 */
-  -webkit-font-feature-settings: "kern" 1;
   font-feature-settings: "kern" 1;
   /* 2 */
-  -webkit-font-kerning: normal;
   font-kerning: normal;
   /* 3 */
 }

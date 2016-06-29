@@ -15,8 +15,10 @@
     "lodash": "^3.9.3",
     "postcss-nested": "^1.0.0",
     "react": "^0.14.0",
+    "react-addons-css-transition-group": "^0.14.8",
     "react-dom": "^0.14.0",
     "react-interval": "^1.2.1",
+    "react-lighthouse": "^1.0.0",
     "react-postcss": "^0.1.0",
     "route-pattern": "^0.0.6"
   }
